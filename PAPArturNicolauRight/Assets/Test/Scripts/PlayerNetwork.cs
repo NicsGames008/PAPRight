@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerNetwork : NetworkBehaviour
 {
+    [SerializeField] private Transform spawendObjectPrefab;
+    private Transform spawnedObjectTransform;
+
+
     private NetworkVariable<int> randomNumber = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
 
@@ -21,12 +22,20 @@ public class PlayerNetwork : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-
+         
         if (!IsOwner) return;
 
         if (Input.GetKey(KeyCode.T))
         {
+            spawnedObjectTransform = Instantiate(spawendObjectPrefab);
+            spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
+
             randomNumber.Value = Random.Range(0, 100);
+        }
+
+        if (Input.GetKey(KeyCode.Y))
+        {
+            Destroy(spawnedObjectTransform.gameObject);
         }
 
         Vector3 moveDir = new Vector3(0, 0, 0);
@@ -39,5 +48,5 @@ public class PlayerNetwork : NetworkBehaviour
         float moveSpeed = 3f;
 
         transform.position += moveDir * moveSpeed * Time.deltaTime;
-    }      
+    }
 }
