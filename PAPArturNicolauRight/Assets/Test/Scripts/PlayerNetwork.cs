@@ -25,7 +25,7 @@ public class PlayerNetwork : NetworkBehaviour
          
         if (!IsOwner) return;
 
-        if (Input.GetKey(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             spawnedObjectTransform = Instantiate(spawendObjectPrefab);
             spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
@@ -33,7 +33,7 @@ public class PlayerNetwork : NetworkBehaviour
             randomNumber.Value = Random.Range(0, 100);
         }
 
-        if (Input.GetKey(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             Destroy(spawnedObjectTransform.gameObject);
         }
