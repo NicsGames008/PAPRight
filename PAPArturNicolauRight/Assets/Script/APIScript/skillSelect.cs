@@ -70,6 +70,7 @@ public class skillSelect : MonoBehaviour
                     gobj.GetComponent<skillInfo>().skillDesc.text = GetValueData(skillData[i], "Desc:");
 
                     gobj.GetComponent<skillInfo>().transform.localScale = new Vector3(1.086957f, 1.428571f, 1);
+                    gobj.GetComponent<skillInfo>().transform.localPosition = new Vector3(165.1413f, -29.8942f, 7);
                 }
             }
         }
@@ -82,7 +83,7 @@ public class skillSelect : MonoBehaviour
     {
         //Le o index pedido quando é chamado o metedo e vai ler ate onde etsa o index pedido
         string value = data.Substring(data.IndexOf(index) + index.Length);
-        //retira o trço de difição adicionada na API
+        //retira o traço de difição adicionada na API
         if (value.Contains("|"))
         {
             value = value.Remove(value.IndexOf("|"));

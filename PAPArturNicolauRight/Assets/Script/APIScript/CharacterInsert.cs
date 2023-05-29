@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using TMPro;
+using Unity.Entities.UniversalDelegates;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +13,7 @@ public class CharacterInsert : MonoBehaviour
     //Guarda o local da API
     string urlCharacterInsert = APIDomain.Domain("characterInsert.php");
     string urlCharacterSkillSelect = APIDomain.Domain("characterSkillSelect.php");
-    string urlCharacterSkillInsert = APIDomain.Domain("characterSkillSelect.php");
+    string urlCharacterSkillInsert = APIDomain.Domain("characterSkillInsert.php");
 
     //Recebe os inputs do user
     public TMP_InputField inputNameCharacter, inputBackground, inputRace, inputHealth, inputStr, inputDex, inputConst, inputInt, inputMana;
@@ -170,30 +172,14 @@ public class CharacterInsert : MonoBehaviour
             //metedo de BD
             StartCoroutine(AddCharacterDB());
 
-            /*
-            for (int i = 0; i < nameSkill.Count; i++)
-            {
-                StartCoroutine(GetSkill_CharacterFromURL(i));
+            //for (int i = 0; i < nameSkill.Count; i++)
+            //{
+            //    StartCoroutine(GetSkill_CharacterFromURL(i));
 
-                if (characterSkillData.Count == nameSkill.Count)
-                {
+            //    Debug.Log(characterSkillData[0]);
+            //}
 
-                    Debug.Log(characterSkillData[i]);
-                }
-                else
-                {
-                    new WaitUntil(() => characterSkillData.Count == nameSkill.Count);
-                    Debug.Log("Erro");
-                }
-
-                StartCoroutine(AddSkillCharacterDB(id)); 
-
-            }
-             */
-
-            //CharacterSelect test = new CharacterSelect();
-
-            //test.ExecutSelect();
+            //    StartCoroutine(AddSkillCharacterDB(id));
 
             ResetValues();
             background.transform.LeanMoveLocal(new Vector3(-800, 0, 0), 0.7f).setEaseInBack().setIgnoreTimeScale(true);
@@ -249,6 +235,7 @@ public class CharacterInsert : MonoBehaviour
     {
 
         characterSkillData.Clear();
+
         // Variável para armazenar os dados a serem enviados na requisição POST
         WWWForm form = new WWWForm();
 
