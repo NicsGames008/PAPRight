@@ -701,11 +701,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 2
-  cloudProjectId: 
+  cloudProjectId: d8904bba-ea7a-4e17-8cc9-a13c66f7162b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Dangeon Master
+  organizationId: nicstarwars008
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
