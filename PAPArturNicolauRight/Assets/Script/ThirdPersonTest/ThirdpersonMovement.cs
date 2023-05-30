@@ -1,7 +1,8 @@
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ThirdpersonMovement : MonoBehaviour
+public class ThirdpersonMovement : NetworkBehaviour
 {
     public CharacterController controller;
     public Transform cam;
@@ -37,6 +38,7 @@ public class ThirdpersonMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsOwner) return;
 
         if (canvas.activeSelf)
             return;

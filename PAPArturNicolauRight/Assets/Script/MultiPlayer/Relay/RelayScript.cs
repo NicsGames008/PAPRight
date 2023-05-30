@@ -51,7 +51,7 @@ public class RelayScript : MonoBehaviour
 
             NetworkManager.Singleton.StartHost();
 
-            roomCode.text += joinCode.ToString(); ;
+            roomCode.text += joinCode.ToString();
         }
         catch (RelayServiceException e)
         {
@@ -73,6 +73,9 @@ public class RelayScript : MonoBehaviour
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
                 NetworkManager.Singleton.StartClient();
+
+                roomCode.text += joinCode.ToString();
+
             }
             catch (RelayServiceException e)
             {
