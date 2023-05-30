@@ -37,6 +37,7 @@ public class ThirdpersonMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (canvas.activeSelf)
             return;
 
@@ -55,14 +56,14 @@ public class ThirdpersonMovement : MonoBehaviour
             //Poe os input do utilizador em angulos
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
 
-            //Vira o persunaguempara onde a camara esta
+            //Vira o personagem para onde a camara esta
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            //Faz o persunaguem andar para onde a camara esta virada
+            //Faz o personagem andar para onde a camara esta virada
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-            //move do eprsunaguem
+            //move do personagem
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using TMPro;
 using Unity.Netcode;
@@ -12,6 +13,9 @@ using UnityEngine;
 
 public class RelayScript : MonoBehaviour
 {
+    [SerializeField]
+    private TMP_Text roomCode;
+
     // Start is called before the first frame update
     async void Start()
     {
@@ -21,9 +25,18 @@ public class RelayScript : MonoBehaviour
             Debug.Log("Sign In" + AuthenticationService.Instance.PlayerId);
         };
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
+
+        if (LoadScene.isAdmin)
+        {
+            CreateRelay();
+        }
+        else
+        {
+            JoinRelayAsync(LoadScene.code);
+        }
     }
 
-    public async void CreatRelay()
+    public async void CreateRelay()
     {
         try
         {
@@ -37,6 +50,8 @@ public class RelayScript : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
             NetworkManager.Singleton.StartHost();
+
+            roomCode.text += joinCode.ToString(); ;
         }
         catch (RelayServiceException e)
         {
@@ -44,15 +59,15 @@ public class RelayScript : MonoBehaviour
         }
     }
 
-    public async void JoinRelayAsync(TMP_InputField joinCode)
+    public async void JoinRelayAsync(string joinCode)
     {
-        if (!String.IsNullOrEmpty(joinCode.text))
+        if (!String.IsNullOrEmpty(joinCode))
         {
             try
             {
-                JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode.text);
+                JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
-                Debug.Log("Joined with the code " + joinCode.text);
+                Debug.Log("Joined with the code " + joinCode);
 
                 RelayServerData relayServerData = new RelayServerData(joinAllocation, "dtls");
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
