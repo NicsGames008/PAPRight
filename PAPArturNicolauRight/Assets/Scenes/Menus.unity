@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00006507212, g: 0.00014093838, b: 0.004272889, a: 1}
+  m_IndirectSpecularColor: {r: 0.000055046083, g: 0.00014094963, b: 0.0042733354, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3355,7 +3355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.041501902}
   m_AnchorMax: {x: 1, y: 0.95415026}
-  m_AnchoredPosition: {x: 0.000067234, y: 10.442921}
+  m_AnchoredPosition: {x: 0.000067234, y: 10.442628}
   m_SizeDelta: {x: 0, y: 389.4623}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &128023855
@@ -6219,10 +6219,10 @@ RectTransform:
   m_Father: {fileID: 1532977164}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -123.00011, y: 135}
-  m_SizeDelta: {x: -267.24777, y: -301.9254}
+  m_AnchorMin: {x: 0, y: 0.85853404}
+  m_AnchorMax: {x: 0.58436036, y: 1}
+  m_AnchoredPosition: {x: 5.3554063, y: -6.442988}
+  m_SizeDelta: {x: -10.53651, y: -19.039501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &212431978
 MonoBehaviour:
@@ -6244,7 +6244,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Crie os seu Personagem
+  m_text: "Crie os seu Her\xF3i"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6278,7 +6278,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -7816,10 +7816,10 @@ RectTransform:
   m_Father: {fileID: 1532977164}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 69}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 191.99986, y: -13}
-  m_SizeDelta: {x: 272.0854, y: 50}
+  m_AnchorMin: {x: 0.6835464, y: 0.052}
+  m_AnchorMax: {x: 1, y: 0.85853404}
+  m_AnchoredPosition: {x: -19.117706, y: 1.6948395}
+  m_SizeDelta: {x: 77.07751, y: -215.89957}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &249032157
 MonoBehaviour:
@@ -11707,7 +11707,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Criar Personagem
+  m_text: "Criar Her\xF3i"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14979,10 +14979,10 @@ RectTransform:
   m_Father: {fileID: 1532977164}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 236.99986, y: 141.97}
-  m_SizeDelta: {x: 103.903, y: 22.591}
+  m_AnchorMin: {x: 0.78783214, y: 0.8787436}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -6.3966537, y: -2.8089197}
+  m_SizeDelta: {x: -26.54699, y: -17.347702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &506047440
 MonoBehaviour:
@@ -20905,10 +20905,10 @@ RectTransform:
   m_Father: {fileID: 1532977164}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -183.5385, y: -139.62007}
-  m_SizeDelta: {x: 188.8264, y: 27.9101}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.365, y: 0.13472949}
+  m_AnchoredPosition: {x: 12.398865, y: 2.8919067}
+  m_SizeDelta: {x: -36.542015, y: -16.562098}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &706903043
 MonoBehaviour:
@@ -21825,7 +21825,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 519979368}
   m_HandleRect: {fileID: 519979367}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -22531,9 +22531,9 @@ RectTransform:
   m_Father: {fileID: 491804351}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -270.99, y: -216.31}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 129.01001, y: 8.582703}
   m_SizeDelta: {x: 258.0229, y: 17.1568}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782025757
@@ -25363,7 +25363,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1662010161}
   m_Direction: 2
   m_Value: 1.0000023
-  m_Size: 0.3690773
+  m_Size: 0.36907732
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -31706,7 +31706,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Criar Personagem
+  m_text: "Criar Her\xF3i"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -34531,8 +34531,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.3118, y: 0.000011444}
-  m_SizeDelta: {x: 606.62, y: 338.46}
+  m_AnchoredPosition: {x: -0.000022411, y: -0.0000033379}
+  m_SizeDelta: {x: 617.24, y: 329.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1229644630
 MonoBehaviour:
@@ -37597,7 +37597,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1107436122}
   m_HandleRect: {fileID: 1107436121}
   m_Direction: 2
-  m_Value: 1.0000001
+  m_Value: 1.0000008
   m_Size: 0.38130322
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -38447,8 +38447,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52, y: 8}
-  m_SizeDelta: {x: 226.1146, y: 50}
+  m_AnchoredPosition: {x: 0, y: 15}
+  m_SizeDelta: {x: 355.55, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1376600080
 MonoBehaviour:
@@ -38470,7 +38470,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dungeon Master
+  m_text: Heroes's Haven
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -38504,8 +38504,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -38533,7 +38533,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -91.40111, y: 0, z: 0, w: 0}
+  m_margin: {x: 1.7018434, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -41978,7 +41978,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Selecione um Personagem
+  m_text: "Selecione um Her\xF3i"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -42012,7 +42012,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -43272,10 +43272,10 @@ RectTransform:
   m_Father: {fileID: 491804351}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 154}
-  m_SizeDelta: {x: 355.55, y: 45.9054}
+  m_AnchorMin: {x: 0.2795795, y: 0.79}
+  m_AnchorMax: {x: 0.73354083, y: 1}
+  m_AnchoredPosition: {x: -5.140522, y: -23.52705}
+  m_SizeDelta: {x: -7.790346, y: -48.825886}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1544515865
 PrefabInstance:
@@ -53396,9 +53396,9 @@ RectTransform:
   m_Father: {fileID: 1532977164}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -97, y: -6.4057}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 211.62149, y: -6.4057}
   m_SizeDelta: {x: 376.367, y: 227.7642}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1915514564
