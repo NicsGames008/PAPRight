@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00006507212, g: 0.00014093838, b: 0.004272889, a: 1}
+  m_IndirectSpecularColor: {r: 0.000055046083, g: 0.00014094963, b: 0.0042733354, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3511,7 +3511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.041501902}
   m_AnchorMax: {x: 1, y: 0.95415026}
-  m_AnchoredPosition: {x: 0.000067234, y: 284.44815}
+  m_AnchoredPosition: {x: 0.000067234, y: 381.2206}
   m_SizeDelta: {x: 0, y: 389.4623}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &128023855
@@ -22193,7 +22193,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 519979368}
   m_HandleRect: {fileID: 519979367}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -38198,8 +38198,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1107436122}
   m_HandleRect: {fileID: 1107436121}
   m_Direction: 2
-  m_Value: 0.25857717
-  m_Size: 0.38130322
+  m_Value: -0.0032765379
+  m_Size: 0.3654779
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -38911,7 +38911,6 @@ GameObject:
   - component: {fileID: 1376274028}
   - component: {fileID: 1376274027}
   - component: {fileID: 1376274026}
-  - component: {fileID: 1376274030}
   m_Layer: 5
   m_Name: Sky
   m_TagString: Untagged
@@ -39001,18 +39000,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 390}
   m_SizeDelta: {x: 800, y: 375}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1376274030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376274025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aff80ddff78089e43a7aeabbce9eb642, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1376600078
 GameObject:
   m_ObjectHideFlags: 0
@@ -41380,7 +41367,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2083927506}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99997634
+  m_Size: 0.9
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -49913,7 +49900,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000091552734, y: -18.999485}
+  m_AnchoredPosition: {x: 0.000091552734, y: -16.566168}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.44, y: 0.9}
 --- !u!114 &1723539809

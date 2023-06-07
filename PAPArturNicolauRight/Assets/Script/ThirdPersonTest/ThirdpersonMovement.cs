@@ -1,3 +1,4 @@
+using Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,6 +7,8 @@ public class ThirdpersonMovement : NetworkBehaviour
 {
     public CharacterController controller;
     public Transform cam;
+    [SerializeField] private CinemachineFreeLook vc;
+    [SerializeField] private AudioListener listener;
 
     public float speed = 6f;
 
@@ -28,11 +31,24 @@ public class ThirdpersonMovement : NetworkBehaviour
 
     public void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
 
         controller = GetComponent<CharacterController>();
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        if (IsOwner)
+        {
+            vc.Priority = 1;
+            listener.enabled = true;
+        }
+        else
+        {
+            vc.Priority = 0;
+        }
     }
 
     // Update is called once per frame
