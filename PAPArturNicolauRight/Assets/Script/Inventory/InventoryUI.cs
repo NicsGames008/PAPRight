@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -13,6 +14,10 @@ public class InventoryUI : NetworkBehaviour
     Inventory inventory;
 
     public GameObject inventoryUI;
+    [SerializeField] private CinemachineFreeLook vc;
+
+
+    [SerializeField] private GameObject player;
 
     //Guarda todos os slots no Vertice
     InventorySlot[] slots;
@@ -20,12 +25,7 @@ public class InventoryUI : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
         inventory = Inventory.instance;
-
-        //Faz com que o inventarios fique inveivel loco de inicio
-        //inventoryUI.SetActive(!inventoryUI.activeSelf);
 
         //Quando o iventario muda muda o ui junto
         inventory.onItemChangecallback += UpdateUI;
@@ -55,7 +55,7 @@ public class InventoryUI : NetworkBehaviour
             //Torna o rato invisivel ou visivel, depende de como estava antes
             Cursor.visible = !Cursor.visible;
 
-            Debug.Log(Cursor.visible);
+            //vc.enabled = !vc.enabled;
 
             //Mostra o canvas do msm
             inventoryUI.SetActive(!inventoryUI.activeSelf);
