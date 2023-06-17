@@ -1,5 +1,17 @@
 public class ClassUser
 {
+    #region UserId
+    //Guarda o username
+    private static int id;
+
+    //recebe o valor do username
+    public static int idPub
+    {
+        get { return id; }
+        set { id = value; }
+    }
+    #endregion
+
     #region UserName
     //Guarda o username
     private string username;

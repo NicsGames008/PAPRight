@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class Transition : MonoBehaviour
 {
-    public GameObject background;
+    [SerializeField]
+    private GameObject background;
+    [SerializeField]
+    private GameObject cam;
+
+    private void Start()
+    {
+        if (string.IsNullOrEmpty(ClassUser.idPub.ToString()) || ClassUser.idPub == 0)
+        {
+            cam.transform.Rotate(-90, 0, 0);
+        }
+    }
 
     public void OpenRegister()
     {

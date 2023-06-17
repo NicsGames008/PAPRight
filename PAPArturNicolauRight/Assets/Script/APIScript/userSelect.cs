@@ -54,6 +54,7 @@ public class userSelect : MonoBehaviour
                     //Guarda o valor do idUser na class para uso futuro
                     ClassSkill.UserIdPub = idUser;
                     ClassCharacter.UserIdPub = idUser;
+                    ClassUser.idPub = idUser;
                     Debug.Log(idUser);
                     Animation();
                     return;

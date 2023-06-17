@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenSelectServer : MonoBehaviour
+public class SelectServer : MonoBehaviour
 {
     public GameObject server;
 
-    public void ClickSkill()
+    public void SelectSession()
     {
         server.SetActive(!server.activeSelf);
     }
