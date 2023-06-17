@@ -1,10 +1,6 @@
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InventoryUI : NetworkBehaviour
 {
@@ -15,6 +11,7 @@ public class InventoryUI : NetworkBehaviour
 
     public GameObject inventoryUI;
     [SerializeField] private CinemachineFreeLook vc;
+    private CinemachineFreeLook vcTemp;
 
 
     [SerializeField] private GameObject player;
@@ -29,6 +26,8 @@ public class InventoryUI : NetworkBehaviour
 
         //Quando o iventario muda muda o ui junto
         inventory.onItemChangecallback += UpdateUI;
+
+        vcTemp = vc;
 
         //Pega em todos os slots do iventario e guarda no array
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
@@ -55,7 +54,15 @@ public class InventoryUI : NetworkBehaviour
             //Torna o rato invisivel ou visivel, depende de como estava antes
             Cursor.visible = !Cursor.visible;
 
-            //vc.enabled = !vc.enabled;
+            if (vc == null)
+            {
+                vc = vcTemp;
+            }
+            else
+            {
+                vc = null;
+            }
+                //vc.enabled = !vc.enabled;
 
             //Mostra o canvas do msm
             inventoryUI.SetActive(!inventoryUI.activeSelf);

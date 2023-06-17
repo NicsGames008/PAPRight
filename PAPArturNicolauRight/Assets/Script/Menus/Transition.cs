@@ -17,6 +17,12 @@ public class Transition : MonoBehaviour
         }
     }
 
+
+    //800 - 0
+    //0 - 233
+    //-800 - 466
+    //-1600 - 699
+    
     public void OpenRegister()
     {
         background.transform.LeanMoveLocal(new Vector3(1600, 0, 0), 0.89f).setEaseInBack().setIgnoreTimeScale(true);
@@ -24,22 +30,22 @@ public class Transition : MonoBehaviour
 
     public void BackLogin()
     {
-        background.transform.LeanMoveLocal(new Vector3(800, 0, 0), 0.89f).setEaseInBack().setIgnoreTimeScale(true);
+        cam.transform.LeanMoveLocal(new Vector3(0, 0, 0), 0.89f).setEaseInBack().setIgnoreTimeScale(true);
     }
 
     public void BackMapSelect()
     {
-        background.transform.LeanMoveLocal(new Vector3(0, 0, 0), 0.89f).setEaseInBack().setIgnoreTimeScale(true);
+        cam.transform.LeanMoveLocal(new Vector3(233, 0, 0), 0.89f).setEaseInBack().setIgnoreTimeScale(true);
     }
 
     public void BackCharacterSelect()
     {
-        background.transform.LeanMoveLocal(new Vector3(-800, 0, 0), 0.89f).setEaseInBack().setIgnoreTimeScale(true);
+        cam.transform.LeanMoveLocal(new Vector3(466, 0, 0), 0.89f).setEaseInBack().setIgnoreTimeScale(true);
     }
 
     public void OpenCharacterCreat()
     {
-        background.transform.LeanMoveLocal(new Vector3(-1600, 0, 0), 0.89f).setEaseInBack().setIgnoreTimeScale(true);
+        cam.transform.LeanMoveLocal(new Vector3(699, 0, 0), 0.89f).setEaseInBack().setIgnoreTimeScale(true);
     }
 
 
