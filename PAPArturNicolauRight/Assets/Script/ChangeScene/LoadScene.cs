@@ -28,4 +28,15 @@ public class LoadScene : MonoBehaviour
             Debug.Log("aaaaaaaaa");
         }
     }
+
+
+    public void LoadMainPage()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public static void LoadError()
+    {
+        SceneManager.LoadScene(2);
+    } 
 }

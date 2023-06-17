@@ -80,6 +80,9 @@ public class RelayScript : MonoBehaviour
             catch (RelayServiceException e)
             {
                 Debug.Log(e);
+
+                LoadScene.LoadError();
+
             }
         }
         else

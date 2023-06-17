@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ThirdPersonTest.unity
     guid: cb787ccacc07bc846973496e45e3c483
-  - enabled: 0
-    path: Assets/Test/Test.unity
-    guid: b37de4fdba1f5e14680eae978ea30c8d
+  - enabled: 1
+    path: Assets/Scenes/NetWorkError.unity
+    guid: c69d3373154abee40a03c4ba5b2842d8
   m_configObjects: {}
