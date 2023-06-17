@@ -29,6 +29,9 @@ public class ThirdpersonMovement : NetworkBehaviour
     public float gravity = -9.8f;
     public float jumpHeight = 1f;
 
+
+    private bool isGM = false;
+
     public void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -46,9 +49,20 @@ public class ThirdpersonMovement : NetworkBehaviour
             listener.enabled = true;
         }
         else
-        {
             vc.Priority = 0;
+
+        if (IsHost)
+        {
+            isGM = true;
+            Debug.Log("Host");
         }
+        else if(IsClient)
+        {
+            isGM = false;
+            Debug.Log("Client");
+
+        }
+
     }
 
     // Update is called once per frame
@@ -59,11 +73,29 @@ public class ThirdpersonMovement : NetworkBehaviour
         if (canvas.activeSelf)
             return;
 
+        if (isGM)
+        {
+            //Spectator movement 
+        }
+        else
+        {
+            PlayerThirdPersonMovement();
+        }
+
+    }
+
+
+    private void PlayerThirdPersonMovement()
+    {
         playerInput = new PlayerInput();
         onFoot = playerInput.OnFoot;
 
         isGrounded = controller.isGrounded;
 
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+        ///ver New input system
+        /////////////////////////////////////////////////////////////////////////////////////////////////
         //Ve quai os input do utilizador
         float hotizotal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -113,10 +145,10 @@ public class ThirdpersonMovement : NetworkBehaviour
                 //Salta
                 playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravity);
             }
-        } 
+        }
         #endregion
-
     }
+
 
     private void FixedUpdate()
     {

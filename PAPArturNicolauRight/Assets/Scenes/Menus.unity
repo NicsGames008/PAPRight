@@ -3511,7 +3511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.041501902}
   m_AnchorMax: {x: 1, y: 0.95415026}
-  m_AnchoredPosition: {x: 0.000067234, y: 380.03387}
+  m_AnchoredPosition: {x: 0.000067234, y: 380.0098}
   m_SizeDelta: {x: 0, y: 389.4623}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &128023855
@@ -38198,8 +38198,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1107436122}
   m_HandleRect: {fileID: 1107436121}
   m_Direction: 2
-  m_Value: -0.00006554521
-  m_Size: 0.38004184
+  m_Value: -0.00000026837407
+  m_Size: 0.38130322
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -39035,8 +39035,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52, y: 8}
-  m_SizeDelta: {x: 226.1146, y: 50}
+  m_AnchoredPosition: {x: 0.00057602, y: 8}
+  m_SizeDelta: {x: 355.55, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1376600080
 MonoBehaviour:
@@ -39058,7 +39058,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dungeon Master
+  m_text: "Heroes\u2019 Heaven"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -39092,8 +39092,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -39121,7 +39121,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -91.40111, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.26055863, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -41367,7 +41367,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2083927506}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9920301
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -44250,10 +44250,10 @@ RectTransform:
   m_Father: {fileID: 491804351}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 154}
-  m_SizeDelta: {x: 355.55, y: 45.9054}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -61.8}
+  m_SizeDelta: {x: 343.489, y: 45.905}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1544515865
 PrefabInstance:
@@ -49900,7 +49900,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000091552734, y: -18.951454}
+  m_AnchoredPosition: {x: 0.000091552734, y: -18.999846}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.44, y: 0.9}
 --- !u!114 &1723539809
