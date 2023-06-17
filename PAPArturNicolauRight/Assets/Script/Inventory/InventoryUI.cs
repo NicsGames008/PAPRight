@@ -1,10 +1,12 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryUI : MonoBehaviour
+public class InventoryUI : NetworkBehaviour
 {
     public Transform itemsParent;
 
@@ -12,8 +14,10 @@ public class InventoryUI : MonoBehaviour
     Inventory inventory;
 
     public GameObject inventoryUI;
+    [SerializeField] private CinemachineFreeLook vc;
 
-    public Transform cam;
+
+    [SerializeField] private GameObject player;
 
     //Guarda todos os slots no Vertice
     InventorySlot[] slots;
@@ -21,12 +25,7 @@ public class InventoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
         inventory = Inventory.instance;
-
-        //Faz com que o inventarios fique inveivel loco de inicio
-        //inventoryUI.SetActive(!inventoryUI.activeSelf);
 
         //Quando o iventario muda muda o ui junto
         inventory.onItemChangecallback += UpdateUI;
@@ -38,6 +37,8 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsOwner) return;
+
         //Quando o utilizador carregar na tecla responsavel por abrir o iventario...
         if (Input.GetButtonDown("Inventory"))
         {
@@ -54,15 +55,11 @@ public class InventoryUI : MonoBehaviour
             //Torna o rato invisivel ou visivel, depende de como estava antes
             Cursor.visible = !Cursor.visible;
 
+            //vc.enabled = !vc.enabled;
+
             //Mostra o canvas do msm
             inventoryUI.SetActive(!inventoryUI.activeSelf);
         }
-
-
-        Vector3 newcampositon = new Vector3(cam.position.x, cam.position.y, cam.position.z);
-
-        cam.position = new Vector3(0,1,0); ;
-
     }
 
     void UpdateUI()

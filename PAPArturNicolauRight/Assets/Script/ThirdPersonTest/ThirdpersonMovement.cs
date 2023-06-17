@@ -1,10 +1,14 @@
+using Cinemachine;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ThirdpersonMovement : MonoBehaviour
+public class ThirdpersonMovement : NetworkBehaviour
 {
     public CharacterController controller;
     public Transform cam;
+    [SerializeField] private CinemachineFreeLook vc;
+    [SerializeField] private AudioListener listener;
 
     public float speed = 6f;
 
@@ -34,9 +38,24 @@ public class ThirdpersonMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
+    public override void OnNetworkSpawn()
+    {
+        if (IsOwner)
+        {
+            vc.Priority = 1;
+            listener.enabled = true;
+        }
+        else
+        {
+            vc.Priority = 0;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (!IsOwner) return;
+
         if (canvas.activeSelf)
             return;
 
@@ -55,14 +74,14 @@ public class ThirdpersonMovement : MonoBehaviour
             //Poe os input do utilizador em angulos
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
 
-            //Vira o persunaguempara onde a camara esta
+            //Vira o personagem para onde a camara esta
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            //Faz o persunaguem andar para onde a camara esta virada
+            //Faz o personagem andar para onde a camara esta virada
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-            //move do eprsunaguem
+            //move do personagem
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
 

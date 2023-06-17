@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerNetwork : NetworkBehaviour
 {
-    [SerializeField] private Transform spawendObjectPrefab;
+    //[SerializeField] private Transform spawendObjectPrefab;
     private Transform spawnedObjectTransform;
 
 
@@ -25,18 +25,18 @@ public class PlayerNetwork : NetworkBehaviour
          
         if (!IsOwner) return;
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            spawnedObjectTransform = Instantiate(spawendObjectPrefab);
-            spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    spawnedObjectTransform = Instantiate(spawendObjectPrefab);
+        //    spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
 
-            randomNumber.Value = Random.Range(0, 100);
-        }
+        //    randomNumber.Value = Random.Range(0, 100);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            Destroy(spawnedObjectTransform.gameObject);
-        }
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //{
+        //    Destroy(spawnedObjectTransform.gameObject);
+        //}
 
         Vector3 moveDir = new Vector3(0, 0, 0);
 
