@@ -16,12 +16,6 @@ public class Transition : MonoBehaviour
             cam.transform.Rotate(-90, 0, 0);
         }
     }
-
-
-    //800 - 0
-    //0 - 233
-    //-800 - 466
-    //-1600 - 699
     
     public void OpenRegister()
     {

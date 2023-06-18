@@ -45,22 +45,19 @@ public class ThirdpersonMovement : NetworkBehaviour
     {
         if (IsOwner)
         {
-            vc.Priority = 1;
+            vc.enabled = true;
             listener.enabled = true;
         }
         else
-            vc.Priority = 0;
+            vc.enabled = false;
 
         if (IsHost)
         {
             isGM = true;
-            Debug.Log("Host");
         }
         else if(IsClient)
         {
             isGM = false;
-            Debug.Log("Client");
-
         }
 
     }
