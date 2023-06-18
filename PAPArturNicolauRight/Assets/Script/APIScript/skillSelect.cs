@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -12,6 +13,10 @@ public class skillSelect : MonoBehaviour
 
     [SerializeField]
     GameObject skillInfoContainer, skillInfoTemplate;
+
+    public static List<ClassSkill> skillList = new List<ClassSkill>();
+
+    private ClassSkill skillClass = new ClassSkill();
 
     public void ExecutSelect()
     {
@@ -66,11 +71,36 @@ public class skillSelect : MonoBehaviour
 
                     gobj.transform.SetParent(skillInfoContainer.transform);
 
-                    gobj.GetComponent<skillInfo>().skillName.text = GetValueData(skillData[i], "SkillName:");
+                    gobj.GetComponent<skillInfo>().skillName.text = GetValueData(skillData[i], "NameSkill:");
                     gobj.GetComponent<skillInfo>().skillDesc.text = GetValueData(skillData[i], "Desc:");
 
                     gobj.GetComponent<skillInfo>().transform.localScale = new Vector3(1.086957f, 1.428571f, 1);
                     gobj.GetComponent<skillInfo>().transform.localPosition = new Vector3(165.1413f, -29.8942f, 7);
+
+                    #region Class
+                    skillClass.SkillIdPub = int.Parse(GetValueData(skillData[i], "ID:"));
+                    skillClass.NameSkillPub = GetValueData(skillData[i], "NameSkill:");
+                    skillClass.MinLevelPub = int.Parse(GetValueData(skillData[i], "MinLevel:"));
+                    skillClass.DescPub = GetValueData(skillData[i], "Description:");
+                    skillClass.DamagePub = int.Parse(GetValueData(skillData[i], "Damage:"));
+                    skillClass.IsMagicPub = int.Parse(GetValueData(skillData[i], "IsMagic:"));
+                    skillClass.MinHealthPub = int.Parse(GetValueData(skillData[i], "MinHealth:"));
+                    skillClass.MinStrPub = int.Parse(GetValueData(skillData[i], "MinStrength:"));
+                    skillClass.MinDexPub = int.Parse(GetValueData(skillData[i], "MinDex:"));
+                    skillClass.MinConstPub = int.Parse(GetValueData(skillData[i], "MinConst:"));
+                    skillClass.MinIntPub = int.Parse(GetValueData(skillData[i], "MinInt:"));
+                    skillClass.MinManaPub = int.Parse(GetValueData(skillData[i], "MinMana:"));
+                    skillClass.AnimationPub = GetValueData(skillData[i], "Animation:");
+
+                    if (skillClass.IsMagicPub == 1)
+                    {
+                        skillClass.CostPub = int.Parse(GetValueData(skillData[i], "Cost:"));
+                        skillClass.EffectPub = GetValueData(skillData[i], "Effect:");
+                        skillClass.EffectValuePub = int.Parse(GetValueData(skillData[i], "EffectValue:"));
+                    }
+                    #endregion
+
+                    skillList.Add(skillClass);
                 }
             }
         }

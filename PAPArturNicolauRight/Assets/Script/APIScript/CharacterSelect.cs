@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -16,6 +17,9 @@ public class CharacterSelect : MonoBehaviour
     [Header("APAGAR")]
     public Sprite temp;
 
+    public List<ClassCharacter> characterList = new List<ClassCharacter>();
+
+    private ClassCharacter characterClass = new ClassCharacter();
 
     public void ExecutSelect()
     {
@@ -73,11 +77,26 @@ public class CharacterSelect : MonoBehaviour
                     gobj.GetComponent<characterInfo>().transform.localPosition = new Vector3(0f, 0f, 0f);
 
                     gobj.GetComponent<characterInfo>().characterAvatar.sprite = temp;
-                    gobj.GetComponent<characterInfo>().characterName.text = GetValueData(characterData[i], "CharacterName:");
+                    gobj.GetComponent<characterInfo>().characterName.text = GetValueData(characterData[i], "NameCharacter:");
 
 
                     gobj.GetComponent<characterInfo>().transform.localScale = new Vector3(1f, 1f, 1f);
 
+                    #region Class
+                    characterClass.CharacterIdPub = int.Parse(GetValueData(characterData[i], "ID:"));
+                    characterClass.NameCharacterPub = GetValueData(characterData[i], "NameCharacter:");
+                    characterClass.AvatarPub = GetValueData(characterData[i], "AvatarCharacter:");
+                    characterClass.BackgroundPub = GetValueData(characterData[i], "Backgroud:");
+                    characterClass.RacePub = GetValueData(characterData[i], "Race:");
+                    characterClass.HealthPub = int.Parse(GetValueData(characterData[i], "Health:"));
+                    characterClass.StrPub = int.Parse(GetValueData(characterData[i], "Strength:"));
+                    characterClass.DexPub = int.Parse(GetValueData(characterData[i], "Dexterity:"));
+                    characterClass.ConstPub = int.Parse(GetValueData(characterData[i], "Constitution:"));
+                    characterClass.IntPub = int.Parse(GetValueData(characterData[i], "Intelligence:"));
+                    characterClass.ManaPub = int.Parse(GetValueData(characterData[i], "Mana:")); 
+                    #endregion
+
+                    characterList.Add(characterClass);
                 }
             }
         }

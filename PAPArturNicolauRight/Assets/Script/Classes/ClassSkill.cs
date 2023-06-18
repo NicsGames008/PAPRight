@@ -1,5 +1,18 @@
 public class ClassSkill
 {
+
+    #region SkillId
+    //Guarda o SkillId
+    private int SkillId;
+
+    //recebe o valor do SkillId
+    public int SkillIdPub
+    {
+        get { return SkillId; }
+        set { SkillId = value; }
+    }
+    #endregion
+
     #region UserId
 
     //Guarda o userId

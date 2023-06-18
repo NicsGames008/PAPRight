@@ -21,8 +21,8 @@ public class CharacterInsert : MonoBehaviour
     //Guarda os dados na class
     private ClassCharacter character = new ClassCharacter();
 
-    //recebe o background para poder mover o ecrã
-    public GameObject background;
+    //recebe o cam para poder mover o ecrã
+    public GameObject cam;
 
     // Referência ao objeto do grupo de ToggleButtons
     public GameObject toggleGroupObj;
@@ -30,6 +30,8 @@ public class CharacterInsert : MonoBehaviour
     public ScrollRect myScrollRect;
 
     private List<string> nameSkill = new List<string>();
+
+    private List<ClassSkill> skillList = skillSelect.skillList;
 
     public List<string> characterSkillData = new List<string>();
 
@@ -172,17 +174,21 @@ public class CharacterInsert : MonoBehaviour
             //metedo de BD
             StartCoroutine(AddCharacterDB());
 
-            //for (int i = 0; i < nameSkill.Count; i++)
-            //{
-            //    StartCoroutine(GetSkill_CharacterFromURL(i));
+            for (int i = 0; i < nameSkill.Count; i++)
+            {
+                Debug.Log(nameSkill[i]);
 
-            //    Debug.Log(characterSkillData[0]);
-            //}
+
+                for (int k = 0; k < skillList.Count; k++)
+                {
+                     Debug.Log(skillList[k].NameSkillPub);
+                }
+            }
 
             //    StartCoroutine(AddSkillCharacterDB(id));
 
             ResetValues();
-            background.transform.LeanMoveLocal(new Vector3(-800, 0, 0), 0.7f).setEaseInBack().setIgnoreTimeScale(true);
+            cam.transform.LeanMoveLocal(new Vector3(466, 0, 0), 0.7f).setEaseInBack().setIgnoreTimeScale(true);
         }
     }
 

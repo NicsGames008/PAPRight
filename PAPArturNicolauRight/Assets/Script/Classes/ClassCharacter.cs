@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ClassCharacter
 {
+
+    
     #region UserId
 
     //Guarda o userId
@@ -14,6 +16,18 @@ public class ClassCharacter
     {
         get { return userId; }
         set { userId = value; }
+    }
+    #endregion
+
+    #region CharacterId
+    //Guarda o CharacterId
+    private int CharacterId;
+
+    //recebe o valor do CharacterId
+    public int CharacterIdPub
+    {
+        get { return CharacterId; }
+        set { CharacterId = value; }
     }
     #endregion
 
