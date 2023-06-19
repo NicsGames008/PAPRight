@@ -1,3 +1,8 @@
+delete from Skils_Character;
+delete from `Character`;
+delete from Skils;
+delete from `User`;
+
 insert into `User`(UserName, PassWord, Email) values("artur", aes_encrypt('a', "shrek"), aes_encrypt('a', "shrek"));
 insert into `User`(UserName, PassWord, Email) values("lucas", aes_encrypt('123', "shrek"), aes_encrypt('lucas@gmail.com', "shrek"));
 
