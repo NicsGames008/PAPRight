@@ -59,7 +59,6 @@ public class ThirdpersonMovement : NetworkBehaviour
         {
             isGM = false;
         }
-
     }
 
     // Update is called once per frame

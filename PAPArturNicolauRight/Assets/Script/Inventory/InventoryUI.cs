@@ -50,7 +50,14 @@ public class InventoryUI : NetworkBehaviour
             }
 
             //Torna o rato invisivel ou visivel, depende de como estava antes
-            Cursor.visible = !Cursor.visible;
+            if (Cursor.visible)
+            {
+                Cursor.visible = false;
+            }
+            else 
+            {
+                Cursor.visible = true;
+            }
 
             vc.enabled = !vc.enabled;
             vc.m_YAxis.m_InputAxisValue = 0;
