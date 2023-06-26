@@ -12,6 +12,8 @@ public class InventoryUI : NetworkBehaviour
 
     public GameObject inventoryUI;
     [SerializeField] private CinemachineFreeLook vc;
+    [SerializeField] private FreeFlyCamera cam;
+
 
 
     [SerializeField] private GameObject player;
@@ -60,6 +62,7 @@ public class InventoryUI : NetworkBehaviour
             }
 
             vc.enabled = !vc.enabled;
+            cam.enabled = !cam.enabled;
             vc.m_YAxis.m_InputAxisValue = 0;
             vc.m_XAxis.m_InputAxisValue = 0;
 
