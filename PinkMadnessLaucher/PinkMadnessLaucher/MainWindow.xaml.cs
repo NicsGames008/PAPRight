@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PinkMadnessLaucher
 {
@@ -20,9 +11,17 @@ namespace PinkMadnessLaucher
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string rootPath;
+        private string gameZip;
+        private string gameExe;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            rootPath = Directory.GetCurrentDirectory();
+            gameZip = Path.Combine(rootPath, "Build.zip");
+            gameExe = Path.Combine(rootPath, "Build", "Heroe's Haven.exe");
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -53,6 +52,22 @@ namespace PinkMadnessLaucher
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (File.Exists(gameExe))
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo(gameExe);
+                startInfo.WorkingDirectory = Path.Combine(rootPath, "Build");
+                Process.Start(startInfo);
+
+                Close();
+            }
+            else
+            {
+                MessageBox.Show(rootPath);
+            }
         }
     }
 }
