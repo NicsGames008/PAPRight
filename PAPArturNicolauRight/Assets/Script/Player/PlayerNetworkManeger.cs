@@ -30,16 +30,18 @@ public class PlayerNetworkManeger : NetworkBehaviour
         {
             var cam = GetComponent<Camera>();
             var script = GetComponent<FreeFlyCamera>();
-            model.SetActive(false);
 
             cam.enabled = true;
             script.enabled = true;
+
         }
         else if(IsClient)
         {
             var thirdPerson = GetComponent<ThirdpersonMovement>();
 
             thirdPerson.enabled = true;
+
+            gameObject.layer = 3;
         }
     }
 }

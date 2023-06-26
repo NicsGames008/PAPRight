@@ -61,8 +61,12 @@ public class InventoryUI : NetworkBehaviour
                 Cursor.visible = true;
             }
 
-            vc.enabled = !vc.enabled;
-            cam.enabled = !cam.enabled;
+            if (IsClient)
+                vc.enabled = !vc.enabled;
+
+            if(IsHost)
+                cam.enabled = !cam.enabled;
+
             vc.m_YAxis.m_InputAxisValue = 0;
             vc.m_XAxis.m_InputAxisValue = 0;
 
