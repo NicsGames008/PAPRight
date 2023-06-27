@@ -80,7 +80,7 @@ CREATE TABLE `Character` (
 ID int(10) NOT NULL AUTO_INCREMENT,
  UserID int(10) NOT NULL,
  NameCharacter varchar(255) NOT NULL,
- AvatarCharacter varchar(255) NOT NULL,
+ AvatarCharacter enum('M','G', 'H', 'k') NOT NULL,
  Backgroud varchar(255) NOT NULL,
  Race varchar(255) NOT NULL,
  Health int(10) NOT NULL,
