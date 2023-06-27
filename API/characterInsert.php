@@ -14,7 +14,7 @@
     $mana= $_POST['mana'];
 
     
-    $sql = "insert into `Character`(UserID, NameCharacter, AvatarCharacter, Backgroud, Race, Health, Strength, Dexterity, Constitution, Intelligence, Mana) values(" . $userId . ", '" . $nameCharacter . "', '" . $avatar . "', '" . $background . "', '" . $race . "', " . $health . ", " . $str . ", " . $dex . ", " . $const . ", " . $int . ", " . $mana . ");";
+    $sql = "insert into `Character`(UserID, NameCharacter, Backgroud, Race, Health, Strength, Dexterity, Constitution, Intelligence, Mana) values(" . $userId . ", '" . $nameCharacter . "', '" . $background . "', '" . $race . "', " . $health . ", " . $str . ", " . $dex . ", " . $const . ", " . $int . ", " . $mana . ");";
     
 
     $result = mysqli_query($connect, $sql);

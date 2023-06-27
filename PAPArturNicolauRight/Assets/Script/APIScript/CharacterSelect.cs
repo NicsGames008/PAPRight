@@ -33,8 +33,6 @@ public class CharacterSelect : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        Debug.Log("aaaaaaaaaa");
-
         foreach (ClassCharacter character in ClassUser.CharactersList)
         {
             GameObject gobj = (GameObject)Instantiate(characterInfoTemplate);
