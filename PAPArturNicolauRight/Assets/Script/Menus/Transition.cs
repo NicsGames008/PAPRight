@@ -11,7 +11,7 @@ public class Transition : MonoBehaviour
 
     private void Start()
     {
-        if (string.IsNullOrEmpty(ClassUser.idPub.ToString()) || ClassUser.idPub == 0)
+        if (string.IsNullOrEmpty(ClassUser.idUser.ToString()) || ClassUser.idUser == 0)
         {
             cam.transform.Rotate(-90, 0, 0);
         }

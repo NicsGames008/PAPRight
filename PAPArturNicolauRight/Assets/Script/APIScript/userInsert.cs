@@ -25,12 +25,12 @@ public class userInsert : MonoBehaviour
         bool valUsername = false, valEmail = false, valPass = false;
 
         //guarda os valores nal class
-        user.usernamePub = insertUsername.text;
-        user.passwordPub = insertPassword.text;
-        user.emailPub = insertEmail.text;
+        user.usernameUser = insertUsername.text;
+        user.passwordUser = insertPassword.text;
+        user.emaiUser = insertEmail.text;
 
         #region Username
-        if (ValidateUsername(user.usernamePub))
+        if (ValidateUsername(user.usernameUser))
         {
             valUsername = true;
             print("Username passou");
@@ -45,7 +45,7 @@ public class userInsert : MonoBehaviour
 
         #region Email
         //Valida de o email esta de acordo com o pedido
-        if (ValidateEmail(user.emailPub))
+        if (ValidateEmail(user.emaiUser))
         {
             valEmail = true;
             print("email passou");
@@ -61,7 +61,7 @@ public class userInsert : MonoBehaviour
 
         #region PassWord
         //Valida de o email esta de acordo com o pedido
-        if (ValidatePassword(user.passwordPub))
+        if (ValidatePassword(user.passwordUser))
         {
             //valida se o confirmar a pass
             if (ValidatePassword(confirmPassword.text))
@@ -124,9 +124,9 @@ public class userInsert : MonoBehaviour
         WWWForm form = new WWWForm();
 
         //da os valores aos post's da API
-        form.AddField("addUsername", user.usernamePub);
-        form.AddField("addEmail", user.emailPub);
-        form.AddField("addPassword", user.passwordPub);
+        form.AddField("addUsername", user.usernameUser);
+        form.AddField("addEmail", user.emaiUser);
+        form.AddField("addPassword", user.passwordUser);
 
         //Iniciando o uso de UnityWebRequest para fazer uma requisição POST para a URL especificada
         using (UnityWebRequest www = UnityWebRequest.Post(url, form))

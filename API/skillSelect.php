@@ -22,8 +22,7 @@
             "|MinDex:".$row['MinDex'].
             "|MinConst:".$row['MinConst'].
             "|MinInt:".$row['MinInt'].
-            "|MinMana:".$row['MinMana'].
-            "|Animation:".$row['Animation'].";";
+            "|MinMana:".$row['MinMana'].";";
         }
     }
 ?>

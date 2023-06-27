@@ -17,7 +17,7 @@ public class skillInsert : MonoBehaviour
     public TMP_InputField inputNameSkill, inputMinLevel, inputDesc, inputDamage, inputMinHealth, inputMinStr, inputMinDex, inputMinConst, inputMinInt, inputMinMana, inputCost, inputEffect, inputEffectValue;
 
     //////////////////////////////////////////////////////
-    //temp vars
+    //Mage vars
     private string animation = "animação";
     //////////////////////////////////////////////////////
 
@@ -227,24 +227,23 @@ public class skillInsert : MonoBehaviour
         if (valName && valMinLevel && valDamage && valMinHealth && valMinStr && valMinDex && valMinConst && valMinInt && valMinMana && valDesc && valCost && valEffect && valEffectValue)
         {
             #region Classes
-            skill.NameSkillPub = inputNameSkill.text;
-            skill.MinLevelPub = int.Parse(inputMinLevel.text);
-            skill.DescPub = inputDesc.text;
-            skill.DamagePub = int.Parse(inputDamage.text);
-            skill.MinHealthPub = int.Parse(inputMinHealth.text);
-            skill.MinStrPub = int.Parse(inputMinStr.text);
-            skill.MinDexPub = int.Parse(inputMinDex.text);
-            skill.MinConstPub = int.Parse(inputMinConst.text);
-            skill.MinIntPub = int.Parse(inputMinInt.text);
-            skill.MinManaPub = int.Parse(inputMinMana.text);
-            skill.AnimationPub = animation;
-            skill.IsMagicPub = isMagic;
-            skill.CostPub = int.Parse(inputCost.text);
-            skill.EffectPub = inputEffect.text;
-            skill.EffectValuePub = int.Parse(inputEffectValue.text);
+            skill.nameSkill = inputNameSkill.text;
+            skill.minLevel = int.Parse(inputMinLevel.text);
+            skill.descSkill = inputDesc.text;
+            skill.damageSkill = int.Parse(inputDamage.text);
+            skill.minHealthSkill = int.Parse(inputMinHealth.text);
+            skill.minStrSkill = int.Parse(inputMinStr.text);
+            skill.minDexSkill = int.Parse(inputMinDex.text);
+            skill.minConstSkill = int.Parse(inputMinConst.text);
+            skill.minIntSkill = int.Parse(inputMinInt.text);
+            skill.minManaSkill = int.Parse(inputMinMana.text);
+            skill.isMagicSkill = isMagic;
+            skill.costSkill = int.Parse(inputCost.text);
+            skill.effectSkill = inputEffect.text;
+            skill.effectValueSkill = int.Parse(inputEffectValue.text);
             #endregion
 
-            StartCoroutine(AddSkillDB());
+            StartCoroutine("AddSkillDB");
 
             ErrorMsg.SetActive(false);
         }
@@ -264,22 +263,21 @@ public class skillInsert : MonoBehaviour
         WWWForm form = new WWWForm();
 
         //Adicionar os dados a serem enviados na requisição POST
-        form.AddField("userId", ClassSkill.UserIdPub);
-        form.AddField("nameSkill", skill.NameSkillPub);
-        form.AddField("minLevel", skill.MinLevelPub);
-        form.AddField("desc", skill.DescPub);
-        form.AddField("damage", skill.DamagePub);
-        form.AddField("minHealth", skill.MinLevelPub);
-        form.AddField("minStr", skill.MinStrPub);
-        form.AddField("minDex", skill.MinDexPub);
-        form.AddField("minConst", skill.MinConstPub);
-        form.AddField("minInt", skill.MinIntPub);
-        form.AddField("minMana", skill.MinManaPub);
-        form.AddField("animation", skill.AnimationPub);
-        form.AddField("isMagic", skill.IsMagicPub);
-        form.AddField("cost", skill.CostPub);
-        form.AddField("effect", skill.EffectPub);
-        form.AddField("effectValue", skill.EffectValuePub);
+        form.AddField("userId", ClassUser.idUser);
+        form.AddField("nameSkill", skill.nameSkill);
+        form.AddField("minLevel", skill.minLevel);
+        form.AddField("desc", skill.descSkill);
+        form.AddField("damage", skill.damageSkill);
+        form.AddField("minHealth", skill.minLevel);
+        form.AddField("minStr", skill.minStrSkill);
+        form.AddField("minDex", skill.minDexSkill);
+        form.AddField("minConst", skill.minConstSkill);
+        form.AddField("minInt", skill.minIntSkill);
+        form.AddField("minMana", skill.minManaSkill);
+        form.AddField("isMagic", skill.isMagicSkill);
+        form.AddField("cost", skill.costSkill);
+        form.AddField("effect", skill.effectSkill);
+        form.AddField("effectValue", skill.effectValueSkill);
 
         //Iniciando o uso de UnityWebRequest para fazer uma requisição POST para a URL especificada
         using (WWW www = new WWW(url, form))
@@ -298,8 +296,9 @@ public class skillInsert : MonoBehaviour
                 //Imprimindo uma mensagem de sucesso no console
                 Debug.Log("Data sent successfully.");
 
-                ResetInputs();
+                ClassUser.SkillsList.Add(skill);
 
+                ResetInputs();
 
                 skillBackground.SetActive(false);
 

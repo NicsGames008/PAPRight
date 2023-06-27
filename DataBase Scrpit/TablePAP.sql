@@ -108,7 +108,6 @@ ID int(10) NOT NULL AUTO_INCREMENT,
  MinConst int(10) NOT NULL,
  MinInt int(10) NOT NULL,
  MinMana int(10) NOT NULL,
- Animation varchar(255) NOT NULL,
  PRIMARY KEY (ID));
  
 CREATE TABLE Item (

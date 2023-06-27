@@ -1,50 +1,22 @@
+using System.Collections.Generic;
+
 public class ClassUser
 {
-    #region UserId
     //Guarda o username
-    private static int id;
+    public static int idUser { get; set; }
 
-    //recebe o valor do username
-    public static int idPub
-    {
-        get { return id; }
-        set { id = value; }
-    }
-    #endregion
-
-    #region UserName
     //Guarda o username
-    private string username;
+    public string usernameUser { get; set; }
 
-    //recebe o valor do username
-    public string usernamePub
-    {
-        get { return username; }
-        set { username = value; }
-    }
-    #endregion
-
-    #region Password
     //Guarda o password
-    private string password;
+    public string passwordUser { get; set; }
 
-    //recebe o valor do password
-    public string passwordPub
-    {
-        get { return password; }
-        set { password = value; }
-    }
-    #endregion
-
-    #region Email
     //Guarda o email
-    private string email;
+    public string emaiUser { get; set; }
 
-    //recebe o valor do email
-    public string emailPub
-    {
-        get { return email; }
-        set { email = value; }
-    }
-    #endregion
+    //Guarda a Lista dos Character
+    public static List<ClassCharacter> CharactersList { get; set; }
+
+    //Guarda a Lista dos Skills
+    public static List<ClassSkill> SkillsList { get; set; }
 }

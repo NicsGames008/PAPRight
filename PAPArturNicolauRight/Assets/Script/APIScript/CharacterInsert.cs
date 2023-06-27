@@ -16,7 +16,8 @@ public class CharacterInsert : MonoBehaviour
     string urlCharacterSkillInsert = APIDomain.Domain("characterSkillInsert.php");
 
     //Recebe os inputs do user
-    public TMP_InputField inputNameCharacter, inputBackground, inputRace, inputHealth, inputStr, inputDex, inputConst, inputInt, inputMana;
+    public TMP_InputField inputNameCharacter, inputBackground, inputHealth, inputStr, inputDex, inputConst, inputInt, inputMana;
+    public TMP_Dropdown inputRace;
 
     //Guarda os dados na class
     private ClassCharacter character = new ClassCharacter();
@@ -72,7 +73,7 @@ public class CharacterInsert : MonoBehaviour
 
         #region Race
         //Chama o metedo q esta respondavel por validar as var string
-        if (ValidateString(inputRace.text))
+        if (inputRace.value != 0)
         {
             //se tudo esta em ordem continua
             valRace = true;
@@ -155,20 +156,33 @@ public class CharacterInsert : MonoBehaviour
         #endregion
         #endregion
 
-
         if (valName && valBackground && valRace && valHealth && valStr && valDex && valConst && valInt && valMana)
         {
             #region Classes
-            character.NameCharacterPub = inputNameCharacter.text;
-            character.AvatarPub = "Mudar no futuro";
-            character.BackgroundPub = inputBackground.text;
-            character.RacePub = inputRace.text;
-            character.HealthPub = int.Parse(inputHealth.text);
-            character.StrPub = int.Parse(inputStr.text);
-            character.DexPub = int.Parse(inputDex.text);
-            character.ConstPub = int.Parse(inputConst.text);
-            character.IntPub = int.Parse(inputInt.text);
-            character.ManaPub = int.Parse(inputMana.text);
+            character.nameCharacter = inputNameCharacter.text;
+            character.avatarCharacter = "Mudar no futuro";
+            character.backgroundCharacter = inputBackground.text;
+            switch (inputRace.value)
+            {
+                case 1:
+                    character.raceCharcter = "M";
+                    break;
+                case 2:
+                    character.raceCharcter = "G";
+                    break;
+                case 3:
+                    character.raceCharcter = "H";
+                    break;
+                case 4:
+                    character.raceCharcter = "K";
+                    break;
+            }
+            character.healthCharacter = int.Parse(inputHealth.text);
+            character.strCharacter = int.Parse(inputStr.text);
+            character.dexCharacter = int.Parse(inputDex.text);
+            character.constCharacter = int.Parse(inputConst.text);
+            character.intCharacter = int.Parse(inputInt.text);
+            character.manaCharacter = int.Parse(inputMana.text);
             #endregion
              
             //metedo de BD
@@ -181,7 +195,7 @@ public class CharacterInsert : MonoBehaviour
 
                 for (int k = 0; k < skillList.Count; k++)
                 {
-                     Debug.Log(skillList[k].NameSkillPub);
+                     Debug.Log(skillList[k].nameSkill);
                 }
             }
 
@@ -201,17 +215,17 @@ public class CharacterInsert : MonoBehaviour
         WWWForm form = new WWWForm();
 
         //Adicionar os dados a serem enviados na requisição POST
-        form.AddField("userId", ClassCharacter.UserIdPub);
-        form.AddField("nameCharacter", character.NameCharacterPub);
-        form.AddField("avatar", character.AvatarPub);
-        form.AddField("background", character.BackgroundPub);
-        form.AddField("race", character.RacePub);
-        form.AddField("health", character.HealthPub);
-        form.AddField("str", character.StrPub);
-        form.AddField("dex", character.DexPub);
-        form.AddField("const", character.ConstPub);
-        form.AddField("int", character.IntPub);
-        form.AddField("mana", character.ManaPub);
+        form.AddField("userId", ClassUser.idUser);
+        form.AddField("nameCharacter", character.nameCharacter);
+        form.AddField("avatar", character.avatarCharacter);
+        form.AddField("background", character.backgroundCharacter);
+        form.AddField("race", character.raceCharcter);
+        form.AddField("health", character.healthCharacter);
+        form.AddField("str", character.strCharacter);
+        form.AddField("dex", character.dexCharacter);
+        form.AddField("const", character.constCharacter);
+        form.AddField("int", character.intCharacter);
+        form.AddField("mana", character.manaCharacter);
 
         //Iniciando o uso de UnityWebRequest para fazer uma requisição POST para a URL especificada
         using (WWW www = new WWW(urlCharacterInsert, form))
@@ -229,6 +243,8 @@ public class CharacterInsert : MonoBehaviour
             {
                 //Imprido uma mensagem de sucesso no console
                 Debug.Log("Data sent successfully.");
+
+                ClassUser.CharactersList.Add(character);
             }
         }
 
@@ -246,7 +262,7 @@ public class CharacterInsert : MonoBehaviour
         WWWForm form = new WWWForm();
 
         //Adicionar os dados a serem enviados na requisição POST
-        form.AddField("userId", ClassCharacter.UserIdPub);
+        form.AddField("userId", ClassUser.idUser);
         form.AddField("nameSkill", nameSkill[id]);
 
         using (WWW webRequest = new WWW(urlCharacterSkillSelect, form))
@@ -328,7 +344,7 @@ public class CharacterInsert : MonoBehaviour
     {
         inputNameCharacter.text = null;
         inputBackground.text = null;
-        inputRace.text = null;
+        inputRace.value = 0;
         inputHealth.text = null;
         inputStr.text = null;
         inputDex.text = null;

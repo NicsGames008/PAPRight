@@ -1,210 +1,50 @@
 public class ClassSkill
 {
 
-    #region SkillId
     //Guarda o SkillId
-    private int SkillId;
+    public int skillId { get; set; }
 
-    //recebe o valor do SkillId
-    public int SkillIdPub
-    {
-        get { return SkillId; }
-        set { SkillId = value; }
-    }
-    #endregion
-
-    #region UserId
-
-    //Guarda o userId
-    private static int userId;
-
-    //recebe o valor do userId
-    public static int UserIdPub
-    {
-        get { return userId; }
-        set { userId = value; }
-    }
-    #endregion
-
-    #region NameSkill
     //Guarda o NameSkill
-    private string NameSkill;
+    public string nameSkill { get; set; }
 
-    //recebe o valor do NameSkill
-    public string NameSkillPub
-    {
-        get { return NameSkill; }
-        set { NameSkill = value; }
-    }
-    #endregion
-
-    #region MinLevel
     //Guarda o NameSkill
-    private int MinLevel;
+    public int minLevel { get; set; }
 
-    //recebe o valor do NameSkill
-    public int MinLevelPub
-    {
-        get { return MinLevel; }
-        set { MinLevel = value; }
-    }
-    #endregion
-
-    #region Desc
     //Guarda o Desc
-    private string Desc;
+    public string descSkill { get; set; }
 
-    //recebe o valor do Desc
-    public string DescPub
-    {
-        get { return Desc; }
-        set { Desc = value; }
-    }
-    #endregion
-
-    #region Damage
     //Guarda o Damage
-    private int Damage;
+    public int damageSkill { get; set; }
 
-    //recebe o valor do Damage
-    public int DamagePub
-    {
-        get { return Damage; }
-        set { Damage = value; }
-    }
-    #endregion
-
-    #region MinHealth               <---------------------
     //Guarda o MinHealth
-    private int MinHealth;
+    public int minHealthSkill { get; set; }
 
-    //recebe o valor do MinHealth
-    public int MinHealthPub
-    {
-        get { return MinHealth; }
-        set { MinHealth = value; }
-    }
-    #endregion
-
-    #region MinStr
     //Guarda o MinStr
-    private int MinStr;
+    public int minStrSkill { get; set; }
 
-    //recebe o valor do Damage
-    public int MinStrPub
-    {
-        get { return MinStr; }
-        set { MinStr = value; }
-    }
-    #endregion
-
-    #region MinDex
     //Guarda o MinDex
-    private int MinDex;
+    public int minDexSkill { get; set; }
 
-    //recebe o valor do MinDex
-    public int MinDexPub
-    {
-        get { return MinDex; }
-        set { MinDex = value; }
-    }
-    #endregion
-
-    #region MinConst
     //Guarda o MinConst
-    private int MinConst;
+    public int minConstSkill { get; set; }
 
-    //recebe o valor do MinConst
-    public int MinConstPub
-    {
-        get { return MinConst; }
-        set { MinConst = value; }
-    }
-    #endregion
-
-    #region MinInt
     //Guarda o MinInt
-    private int MinInt;
+    public int minIntSkill { get; set; }
 
-    //recebe o valor do MinInt
-    public int MinIntPub
-    {
-        get { return MinInt; }
-        set { MinInt = value; }
-    }
-    #endregion
-
-    #region MinMana                 <---------------------
     //Guarda o MinMana
-    private int MinMana;
+    public int minManaSkill { get; set; }
 
-    //recebe o valor do MinMana
-    public int MinManaPub
-    {
-        get { return MinMana; }
-        set { MinMana = value; }
-    }
-    #endregion
-
-    #region Animation
-    //Guarda o Animation
-    private string Animation;
-
-    //recebe o valor do MinConst
-    public string AnimationPub
-    {
-        get { return Animation; }
-        set { Animation = value; }
-    }
-    #endregion
-
-    #region IsMagic
     //Guarda o IsMagic
-    private int IsMagic;
+    public int isMagicSkill { get; set; }
 
-    //recebe o valor do IsMagic
-    public int IsMagicPub
-    {
-        get { return IsMagic; }
-        set { IsMagic = value; }
-    }
-    #endregion
-
-    #region Cost
     //Guarda o Cost
-    private int Cost;
+    public int costSkill { get; set; }
 
-    //recebe o valor do Cost
-    public int CostPub
-    {
-        get { return Cost; }
-        set { Cost = value; }
-    }
-    #endregion
-
-    #region Effect
     //Guarda o Effect
-    private string Effect;
-
-    //recebe o valor do Effect
-    public string EffectPub
-    {
-        get { return Effect; }
-        set { Effect = value; }
-    }
-    #endregion
-
-    #region EffectValue
+    public string effectSkill { get; set; }
     //Guarda o EffectValue
-    private int EffectValue;
+    public int effectValueSkill { get; set; }
 
-    //recebe o valor do Effect
-    public int EffectValuePub
-    {
-        get { return EffectValue; }
-        set { EffectValue = value; }
-    }
-    #endregion
 
 
 }
