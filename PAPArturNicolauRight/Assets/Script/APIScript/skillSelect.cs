@@ -19,13 +19,13 @@ public class skillSelect : MonoBehaviour
 
     public void ExecutSelect()
     {
-        if (ClassUser.SkillsList.Count == 0)
-            return;
-
         foreach (Transform child in skillInfoContainer.transform)
         {
             Destroy(child.gameObject);
         }
+
+        if (ClassUser.SkillsList == null || ClassUser.SkillsList.Count == 0)
+            return;
 
         // Itera por todos os itens na lista
         foreach (ClassSkill skill in ClassUser.SkillsList)

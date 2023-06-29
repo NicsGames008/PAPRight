@@ -34,8 +34,6 @@ public class RoolDice : MonoBehaviour
 
         finalSide = randomDiceSide + 1;
 
-        Debug.Log(finalSide);
-
         dice.text = finalSide.ToString();
     }
 }

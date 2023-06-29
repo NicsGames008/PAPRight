@@ -3,8 +3,10 @@
 
     $idSkill= $_POST['idSkill'];
     $idCharacter = $_POST['idCharacter'];
+    $idUser = $_POST['idUser'];
+
   
-    $sql = "insert into Skils_Character(SkilsID, CharacterID) values(".$idSkill.", ".$idCharacter.");";
+    $sql = "insert into Skils_Character(SkilsID, CharacterID, UserID) values(".$idSkill.", ".$idCharacter.",".$idUser.");";
     
 
     $result = mysqli_query($connect, $sql);

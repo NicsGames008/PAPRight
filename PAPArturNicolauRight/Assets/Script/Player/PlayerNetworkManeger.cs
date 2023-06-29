@@ -10,6 +10,8 @@ public class PlayerNetworkManeger : NetworkBehaviour
     [SerializeField] private GameObject vc;
     [SerializeField] private AudioListener listener;
     [SerializeField] private GameObject model;
+    [SerializeField] private GameObject adminInvetory;
+    [SerializeField] private GameObject playerInvetory;
 
 
     public override void OnNetworkSpawn()
@@ -33,6 +35,7 @@ public class PlayerNetworkManeger : NetworkBehaviour
 
             cam.enabled = true;
             script.enabled = true;
+            adminInvetory.SetActive(true);
 
         }
         else if(IsClient)
@@ -42,6 +45,7 @@ public class PlayerNetworkManeger : NetworkBehaviour
             thirdPerson.enabled = true;
 
             gameObject.layer = 3;
+            playerInvetory.SetActive(true);
         }
     }
 }

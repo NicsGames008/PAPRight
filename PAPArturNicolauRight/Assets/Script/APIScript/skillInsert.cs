@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class skillInsert : MonoBehaviour
@@ -226,7 +228,14 @@ public class skillInsert : MonoBehaviour
 
         if (valName && valMinLevel && valDamage && valMinHealth && valMinStr && valMinDex && valMinConst && valMinInt && valMinMana && valDesc && valCost && valEffect && valEffectValue)
         {
+            skill = new ClassSkill();
+
             #region Classes
+            if (ClassUser.SkillsList == null)
+                skill.skillId = 1;
+            else
+                skill.skillId = ClassUser.SkillsList[ClassUser.SkillsList.Count - 1].skillId + 1;
+
             skill.nameSkill = inputNameSkill.text;
             skill.minLevel = int.Parse(inputMinLevel.text);
             skill.descSkill = inputDesc.text;
@@ -296,7 +305,15 @@ public class skillInsert : MonoBehaviour
                 //Imprimindo uma mensagem de sucesso no console
                 Debug.Log("Data sent successfully.");
 
-                ClassUser.SkillsList.Add(skill);
+                if (ClassUser.SkillsList == null)
+                {
+                    List<ClassSkill> temSkill= new List<ClassSkill>();
+                    temSkill.Add(skill);
+
+                    ClassUser.SkillsList = temSkill;
+                }
+                else
+                    ClassUser.SkillsList.Add(skill);
 
                 ResetInputs();
 

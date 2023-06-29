@@ -49,11 +49,9 @@ SessionID int(10) NOT NULL,
  NPCID));
  
 CREATE TABLE Skils_Character (
+UserID int(10) NOT NULL,
 SkilsID int(10) NOT NULL,
- CharacterID int(10) NOT NULL,
- Level int(10),
- PRIMARY KEY (SkilsID,
- CharacterID));
+ CharacterID int(10) NOT NULL);
  
 CREATE TABLE Skils_NPC (
 SkilsID int(10) NOT NULL,
@@ -70,19 +68,17 @@ UserID int(10) NOT NULL,
  
 CREATE TABLE `Session` (
 ID int(10) NOT NULL AUTO_INCREMENT,
+ UserID int(10) NOT NULL,
  NameSession varchar(255) NOT NULL,
- DateSession varchar(255) NOT NULL,
- MapID int(10) NOT NULL,
- Name varchar(255) NOT NULL,
+ DateSession varchar(255) NOT NULL, 
  PRIMARY KEY (ID));
  
 CREATE TABLE `Character` (
 ID int(10) NOT NULL AUTO_INCREMENT,
  UserID int(10) NOT NULL,
  NameCharacter varchar(255) NOT NULL,
- AvatarCharacter enum('M','G', 'H', 'k') NOT NULL,
  Backgroud varchar(255) NOT NULL,
- Race varchar(255) NOT NULL,
+ Race enum('M','G', 'H', 'k') NOT NULL,
  Health int(10) NOT NULL,
  Strength int(10) NOT NULL,
  Dexterity int(10) NOT NULL,
@@ -159,9 +155,11 @@ ALTER TABLE User_Session ADD CONSTRAINT FKUser_Sessi882303 FOREIGN KEY (SessionI
 
 ALTER TABLE Map ADD CONSTRAINT FKMap440077 FOREIGN KEY (UserID) REFERENCES `User` (ID);
 
-ALTER TABLE `Session` ADD CONSTRAINT FKSession136535 FOREIGN KEY (MapID) REFERENCES Map (ID);
+ALTER TABLE `Session` ADD CONSTRAINT FKSession136535 FOREIGN KEY (UserID) REFERENCES `User` (ID);
 
 ALTER TABLE Skils_Character ADD CONSTRAINT FKSkils_Char696507 FOREIGN KEY (SkilsID) REFERENCES Skils (ID);
+
+ALTER TABLE Skils_Character ADD CONSTRAINT FKUser_Sessi870739 FOREIGN KEY (UserID) REFERENCES `User` (ID);
 
 ALTER TABLE Session_NPC ADD CONSTRAINT FKSession_NP260520 FOREIGN KEY (NPCID) REFERENCES NPC (ID);
 

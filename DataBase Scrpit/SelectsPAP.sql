@@ -1,8 +1,9 @@
 /*Select geral*/
-Select * From `User`;
+Select * From `Usl.comer`;
 select * from skils;
 select * from `Character`;
 select * from `Skils_Character`;
+select * from `Session`;
 
 /*Select especifico*/
 
@@ -19,3 +20,7 @@ select NameCharacter from `Character` where UserId = 1;
 /*select da skill para dar add ao Skils_Character*/
 select ID from skils where NameSkill = 'skill1' and UserID = 1;
 select ID from `Character` ORDER BY id DESC LIMIT 1;
+
+select NameSession, DateSession from `Session` where UserID = 1;
+
+select SkilsID, CharacterID from `Skils_Character` where UserID = 1;

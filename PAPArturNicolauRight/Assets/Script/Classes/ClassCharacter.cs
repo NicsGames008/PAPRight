@@ -11,9 +11,6 @@ public class ClassCharacter
     //Guarda o NameCharacter
     public string nameCharacter { get; set; }
 
-    //Guarda o Avatar
-    public string avatarCharacter { get; set; }
-
     //Guarda o Background
     public string backgroundCharacter { get; set; }
 

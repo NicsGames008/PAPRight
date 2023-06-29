@@ -19,4 +19,10 @@ public class ClassUser
 
     //Guarda a Lista dos Skills
     public static List<ClassSkill> SkillsList { get; set; }
+
+    //Guarda a Lista dos SkillCharacter
+    public static List<ClassSkillCharacter> SkillsCharacterList { get; set; }
+
+    //Guarda a Lista dos SessionList
+    public static List<ClassSession> SessionList { get; set; }
 }

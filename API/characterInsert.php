@@ -3,7 +3,6 @@
 
     $userId= $_POST['userId'];
     $nameCharacter = $_POST['nameCharacter'];
-    $avatar= $_POST['avatar'];
     $background= $_POST['background'];
     $race= $_POST['race'];
     $health= $_POST['health'];

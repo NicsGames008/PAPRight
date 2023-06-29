@@ -1,37 +1,33 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Entities.UniversalDelegates;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class CharacterSelect : MonoBehaviour
 {
-    //Guarda o dominio da API
-    string url = APIDomain.Domain("characterSelect.php");
-
-    //Lista que guarda todos os valores da API
-    public string[] characterData;
-
     [SerializeField]
     GameObject characterInfoContainer, characterInfoTemplate;
 
     [Header("Sprits")]
+    public Sprite Default;
     public Sprite Mage;
     public Sprite Goblin;
-    //public Sprite Human;
-    //public Sprite Knight;
+    public Sprite Human;
+    public Sprite Knight;
 
     public void ExecutSelect()
     {
-        if (ClassUser.CharactersList.Count == 0)
-            return;
-
-
         foreach (Transform child in characterInfoContainer.transform)
         {
             Destroy(child.gameObject);
         }
+
+        if (ClassUser.CharactersList == null || ClassUser.CharactersList.Count == 0)      
+            return;
+
 
         foreach (ClassCharacter character in ClassUser.CharactersList)
         {
@@ -39,10 +35,10 @@ public class CharacterSelect : MonoBehaviour
 
             gobj.transform.SetParent(characterInfoContainer.transform);
 
-            gobj.GetComponent<characterInfo>().transform.localPosition = new Vector3(0f, 0f, 0f);
+            gobj.transform.localPosition = new Vector3(0f, 0f, 0f);
 
 
-            switch (character.avatarCharacter)
+            switch (character.raceCharcter)
             {
                 case "M":
                     gobj.GetComponent<characterInfo>().characterAvatar.sprite = Mage;
@@ -50,18 +46,21 @@ public class CharacterSelect : MonoBehaviour
                 case "G":
                     gobj.GetComponent<characterInfo>().characterAvatar.sprite = Goblin;
                     break;
-                //case "H":
-                //    gobj.GetComponent<characterInfo>().characterAvatar.sprite = Human;
-                //    break;
-                //case "K":
-                //    gobj.GetComponent<characterInfo>().characterAvatar.sprite = Knight;
-                //    break;
+                case "H":
+                    gobj.GetComponent<characterInfo>().characterAvatar.sprite = Human;
+                    break;
+                case "k":
+                    gobj.GetComponent<characterInfo>().characterAvatar.sprite = Knight;
+                    break;
+                default:
+                    gobj.GetComponent<characterInfo>().characterAvatar.sprite = Default;
+                    break;
             }
 
             gobj.GetComponent<characterInfo>().characterName.text = character.nameCharacter;
 
 
-            gobj.GetComponent<characterInfo>().transform.localScale = new Vector3(1f, 1f, 1f);
+            gobj.transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
     #region GetValueData

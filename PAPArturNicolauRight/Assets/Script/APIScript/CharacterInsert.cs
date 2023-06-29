@@ -7,6 +7,7 @@ using TMPro;
 using Unity.Entities.UniversalDelegates;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CharacterInsert : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class CharacterInsert : MonoBehaviour
 
     //Guarda os dados na class
     private ClassCharacter character = new ClassCharacter();
+    private ClassSkillCharacter skillCharacter = new ClassSkillCharacter();
 
     //recebe o cam para poder mover o ecrã
     public GameObject cam;
@@ -31,8 +33,6 @@ public class CharacterInsert : MonoBehaviour
     public ScrollRect myScrollRect;
 
     private List<string> nameSkill = new List<string>();
-
-    private List<ClassSkill> skillList = skillSelect.skillList;
 
     public List<string> characterSkillData = new List<string>();
 
@@ -158,9 +158,17 @@ public class CharacterInsert : MonoBehaviour
 
         if (valName && valBackground && valRace && valHealth && valStr && valDex && valConst && valInt && valMana)
         {
+            character = new ClassCharacter();
+            skillCharacter = new ClassSkillCharacter();
+
             #region Classes
+            if (ClassUser.CharactersList == null)
+                character.intCharacter = 1;
+            else            
+                character.characterId = ClassUser.CharactersList[ClassUser.CharactersList.Count - 1].characterId + 1;
+
+            skillCharacter.CharacterId =  character.characterId;
             character.nameCharacter = inputNameCharacter.text;
-            character.avatarCharacter = "Mudar no futuro";
             character.backgroundCharacter = inputBackground.text;
             switch (inputRace.value)
             {
@@ -174,7 +182,7 @@ public class CharacterInsert : MonoBehaviour
                     character.raceCharcter = "H";
                     break;
                 case 4:
-                    character.raceCharcter = "K";
+                    character.raceCharcter = "k";
                     break;
             }
             character.healthCharacter = int.Parse(inputHealth.text);
@@ -184,22 +192,31 @@ public class CharacterInsert : MonoBehaviour
             character.intCharacter = int.Parse(inputInt.text);
             character.manaCharacter = int.Parse(inputMana.text);
             #endregion
-             
+
             //metedo de BD
             StartCoroutine(AddCharacterDB());
 
-            for (int i = 0; i < nameSkill.Count; i++)
-            {
-                Debug.Log(nameSkill[i]);
+            //for (int i = 0; i < nameSkill.Count; i++)
+            //{
+            //    Debug.Log(nameSkill[i]);
+
+            //    foreach (ClassSkill skill in ClassUser.SkillsList)
+            //    {
+            //        if (skill.nameSkill == nameSkill[i])
+            //        {
+            //            skillCharacter.skillId = skill.skillId;
+            //            StartCoroutine(AddSkillCharacterDB(skill.skillId));
+
+            //            Debug.Log(skillCharacter.skillId);
+            //            Debug.Log(skillCharacter.CharacterId);
 
 
-                for (int k = 0; k < skillList.Count; k++)
-                {
-                     Debug.Log(skillList[k].nameSkill);
-                }
-            }
+            //            //ClassUser.SkillsCharacterList.Add(skillCharacter);
+            //        }
+            //    }
 
-            //    StartCoroutine(AddSkillCharacterDB(id));
+            //}
+
 
             ResetValues();
             cam.transform.LeanMoveLocal(new Vector3(466, 0, 0), 0.7f).setEaseInBack().setIgnoreTimeScale(true);
@@ -217,7 +234,6 @@ public class CharacterInsert : MonoBehaviour
         //Adicionar os dados a serem enviados na requisição POST
         form.AddField("userId", ClassUser.idUser);
         form.AddField("nameCharacter", character.nameCharacter);
-        form.AddField("avatar", character.avatarCharacter);
         form.AddField("background", character.backgroundCharacter);
         form.AddField("race", character.raceCharcter);
         form.AddField("health", character.healthCharacter);
@@ -244,62 +260,33 @@ public class CharacterInsert : MonoBehaviour
                 //Imprido uma mensagem de sucesso no console
                 Debug.Log("Data sent successfully.");
 
-                ClassUser.CharactersList.Add(character);
+                if (ClassUser.CharactersList == null)
+                {
+                    List<ClassCharacter> temChar = new List<ClassCharacter>();
+                    temChar.Add(character);
+
+                    ClassUser.CharactersList = temChar;
+                }
+                else
+                    ClassUser.CharactersList.Add(character);
             }
         }
 
-    }
-    #endregion
-
-    #region Buscar Skill_Character da BD
-    //Le toda a data na API
-    IEnumerator GetSkill_CharacterFromURL(int id)
-    {
-
-        characterSkillData.Clear();
-
-        // Variável para armazenar os dados a serem enviados na requisição POST
-        WWWForm form = new WWWForm();
-
-        //Adicionar os dados a serem enviados na requisição POST
-        form.AddField("userId", ClassUser.idUser);
-        form.AddField("nameSkill", nameSkill[id]);
-
-        using (WWW webRequest = new WWW(urlCharacterSkillSelect, form))
-        {
-            // Envia a requisição
-            yield return webRequest;
-
-            new WaitUntil(() => webRequest.isDone);
-
-            // Verifica se houve erro na requisição
-            if (!webRequest.isDone)
-            {
-                Debug.Log("Error: " + webRequest.error);
-            }
-            else
-            {
-                //recebe todos os dados
-                string characterSkillDataString = webRequest.text;
-
-                //Guarda na lista
-                characterSkillData.Add(characterSkillDataString);
-            }
-        }
     }
     #endregion
 
     #region Adicionar Skill_Character a BD
-    public IEnumerator AddSkillCharacterDB(int id)
+    public IEnumerator AddSkillCharacterDB(int skillId)
     {
-        /*Ver op id user para n dar erro como o jonny disse*/
+        /*Ver op skillId user para n dar erro como o jonny disse*/
 
         // Variável para armazenar os dados a serem enviados na requisição POST
         WWWForm form = new WWWForm();
 
         //Adicionar os dados a serem enviados na requisição POST
-        form.AddField("idSkill", GetValueData(characterSkillData[id], "IdSkill:"));
-        form.AddField("idCharacter", GetValueData(characterSkillData[id], "IdCharacter:"));
+        form.AddField("idSkill", skillId);
+        form.AddField("idCharacter", character.characterId);
+        form.AddField("idUser", ClassUser.idUser);
 
         //Iniciando o uso de UnityWebRequest para fazer uma requisição POST para a URL especificada
         using (WWW www = new WWW(urlCharacterSkillInsert, form))

@@ -11,15 +11,13 @@ public class userSelect : MonoBehaviour
     string urlUser = APIDomain.Domain("userSelect.php");
     string urlCharacter = APIDomain.Domain("characterSelect.php");
     string urlSkill = APIDomain.Domain("skillSelect.php");
-
-
+    string urlSession= APIDomain.Domain("sessionSelect.php");
 
     //Lista que guarda todos os valores da API
     public string[] userData;
     public string[] characterData;
     public string[] skillData;
-
-
+    public string[] sessionData;
 
     //Caixa de email e passaword que o utilizador pos
     public TMP_InputField insertPassword, insertEmail;
@@ -44,11 +42,8 @@ public class userSelect : MonoBehaviour
         //le mais uma vez a data na API
         StartCoroutine(GetFromURLUser());
 
-        //tira 1 valor ao tamanhao do arrai para bater certo
-        int index = userData.Length - 1;
-
         //passa por todo o tamanho do array para...
-        for (int i = 0; i < index; i++)
+        for (int i = 0; i < userData.Length; i++)
         {
             //ver se ha algum email com o input que o utilizador pos
             if (GetValueData(userData[i], "email:") == insertEmail.text)
@@ -69,7 +64,8 @@ public class userSelect : MonoBehaviour
                     Animation();
 
                     StartCoroutine("GetFromURLCharcter");
-                    StartCoroutine("GetFromURLSkill");
+                    //StartCoroutine("GetFromURLSkill");
+                    StartCoroutine("GetFromURLSession");
 
                     return;
                 }
@@ -105,8 +101,15 @@ public class userSelect : MonoBehaviour
             }
             else
             {
+                string userDataString = "";
+
                 //recebe todos os dados
-                string userDataString = webRequest.downloadHandler.text;
+                if (string.IsNullOrEmpty(webRequest.downloadHandler.text))
+                {
+                    userDataString = webRequest.downloadHandler.text;
+                }
+                else
+                    userDataString = webRequest.downloadHandler.text.Remove(webRequest.downloadHandler.text.Length - 1);
 
                 //Guarda na lista
                 userData = userDataString.Split(';');
@@ -164,7 +167,6 @@ public class userSelect : MonoBehaviour
                         #region Class
                         character.characterId = int.Parse(GetValueData(charData, "ID:"));
                         character.nameCharacter = GetValueData(charData, "NameCharacter:");
-                        character.avatarCharacter = GetValueData(charData, "Avatar:");
                         character.backgroundCharacter = GetValueData(charData, "Backgroud:");
                         character.raceCharcter = GetValueData(charData, "Race:");
                         character.healthCharacter = int.Parse(GetValueData(charData, "Health:"));
@@ -179,6 +181,63 @@ public class userSelect : MonoBehaviour
                     }
 
                     ClassUser.CharactersList = characterList; 
+                }
+            }
+        }
+    }
+    #endregion
+
+    #region GetFromURLSession
+    // Lê todas as informações da API
+    IEnumerator GetFromURLSession()
+    {
+        // Cria um formulário com o ID do usuário
+        WWWForm form = new WWWForm();
+        form.AddField("userId", ClassUser.idUser);
+
+        // Faz uma requisição POST para a URL especificada
+        using (UnityWebRequest Web = UnityWebRequest.Post(urlSession, form))
+        {
+            // Envia a requisição e aguarda a resposta
+            yield return Web.SendWebRequest();
+
+            // Verifica se houve erro na requisição
+            if (Web.isNetworkError)
+            {
+                // Imprime o erro no console
+                Debug.Log("Error: " + Web.error);
+            }
+            else
+            {
+
+                // Recebe todos os dados da resposta
+                string sessionDataString = Web.downloadHandler.text;
+
+                if (!String.IsNullOrEmpty(sessionDataString))
+                {
+                    sessionDataString = sessionDataString.Remove(Web.downloadHandler.text.Length - 1);
+
+                    // Separa os dados em uma lista
+                    sessionData = sessionDataString.Split(";");
+
+                    Debug.Log("Data received successfully.");
+
+
+                    List<ClassSession> sessionList = new List<ClassSession>();
+
+                    foreach (string sessionData in sessionData)
+                    {
+                        ClassSession session = new ClassSession();
+
+                        #region Class
+                        session.nameSession = GetValueData(sessionData, "NameSession:");
+                        session.dateSession = GetValueData(sessionData, "DateSession:");
+                        #endregion
+
+                        sessionList.Add(session);
+                    }
+
+                    ClassUser.SessionList= sessionList;
                 }
             }
         }
@@ -259,7 +318,6 @@ public class userSelect : MonoBehaviour
         }
     }
     #endregion
-
 
     #region GetValueData
     //Pega um valor especifico da API
