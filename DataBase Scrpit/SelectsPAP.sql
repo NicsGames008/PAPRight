@@ -1,9 +1,11 @@
 /*Select geral*/
-Select * From `Usl.comer`;
-select * from skils;
+Select * From `User`;
 select * from `Character`;
-select * from `Skils_Character`;
 select * from `Session`;
+select * from Item;
+
+select * from skils;
+select * from `Skils_Character`;
 
 /*Select especifico*/
 

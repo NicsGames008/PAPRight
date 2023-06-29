@@ -17,7 +17,6 @@ public class sessionSelect : MonoBehaviour
 
         foreach (ClassSession session in ClassUser.SessionList)
         {
-            Debug.Log(session.nameSession);
 
             GameObject gobj = (GameObject)Instantiate(sessionInfoTemplate);
 
@@ -28,9 +27,6 @@ public class sessionSelect : MonoBehaviour
 
             gobj.transform.localScale = new Vector3(1, 1, 1);
             gobj.transform.localPosition = new Vector3(0, -61.645f, 0f);
-
-
-            Debug.Log(session.dateSession);
 
         }
     }
