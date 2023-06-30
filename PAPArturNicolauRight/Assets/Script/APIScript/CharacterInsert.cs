@@ -2,12 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using TMPro;
-using Unity.Entities.UniversalDelegates;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CharacterInsert : MonoBehaviour
 {
@@ -19,6 +16,7 @@ public class CharacterInsert : MonoBehaviour
     //Recebe os inputs do user
     public TMP_InputField inputNameCharacter, inputBackground, inputHealth, inputStr, inputDex, inputConst, inputInt, inputMana;
     public TMP_Dropdown inputRace;
+    public GameObject error;
 
     //Guarda os dados na class
     private ClassCharacter character = new ClassCharacter();
@@ -158,16 +156,19 @@ public class CharacterInsert : MonoBehaviour
 
         if (valName && valBackground && valRace && valHealth && valStr && valDex && valConst && valInt && valMana)
         {
+            error.SetActive(false);
+
+
             character = new ClassCharacter();
             skillCharacter = new ClassSkillCharacter();
 
             #region Classes
             if (ClassUser.CharactersList == null)
                 character.intCharacter = 1;
-            else            
+            else
                 character.characterId = ClassUser.CharactersList[ClassUser.CharactersList.Count - 1].characterId + 1;
 
-            skillCharacter.CharacterId =  character.characterId;
+            skillCharacter.CharacterId = character.characterId;
             character.nameCharacter = inputNameCharacter.text;
             character.backgroundCharacter = inputBackground.text;
             switch (inputRace.value)
@@ -221,6 +222,8 @@ public class CharacterInsert : MonoBehaviour
             ResetValues();
             cam.transform.LeanMoveLocal(new Vector3(466, 0, 0), 0.7f).setEaseInBack().setIgnoreTimeScale(true);
         }
+        else
+            error.SetActive(true);
     }
 
 

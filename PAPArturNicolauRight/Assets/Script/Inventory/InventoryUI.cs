@@ -7,6 +7,8 @@ public class InventoryUI : NetworkBehaviour
 {
     public Transform itemsParent;
 
+    public GameObject pauseMenu;
+
     //Associa ao Inventario
     Inventory inventory;
 
@@ -39,7 +41,7 @@ public class InventoryUI : NetworkBehaviour
         if (!IsOwner) return;
 
         //Quando o utilizador carregar na tecla responsavel por abrir o iventario...
-        if (Input.GetButtonDown("Inventory"))
+        if (Input.GetButtonDown("Inventory") && !pauseMenu.activeSelf)
         {
             //Ve se o rato esta preso no meu do ecra
             if (Cursor.lockState == CursorLockMode.None)

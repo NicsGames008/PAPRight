@@ -52,6 +52,7 @@ public class RelayScript : MonoBehaviour
             NetworkManager.Singleton.StartHost();
 
             roomCode.text += joinCode.ToString();
+
         }
         catch (RelayServiceException e)
         {
@@ -83,6 +84,7 @@ public class RelayScript : MonoBehaviour
 
                 LoadScene.LoadError();
 
+                AuthenticationService.Instance.SignOut();
             }
         }
         else

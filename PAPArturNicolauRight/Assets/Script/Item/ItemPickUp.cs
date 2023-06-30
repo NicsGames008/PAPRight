@@ -1,6 +1,7 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class ItemPickUp : MonoBehaviour
+public class ItemPickUp : NetworkBehaviour
 {
     // recebe os valores do item
     public Item item;
@@ -23,6 +24,8 @@ public class ItemPickUp : MonoBehaviour
                 item.gameObject = gameObject;
 
                 gameObject.SetActive(false);
+
+                //gameObject.GetComponentInChildren<NetworkObject>().Despawn(true);
             }
 
 
