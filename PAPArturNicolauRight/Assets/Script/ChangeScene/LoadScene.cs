@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Netcode;
+using Unity.Services.Authentication;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -62,4 +64,10 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    public void LoadMainPageNonError()
+    {
+        SceneManager.LoadScene(0);
+        NetworkManager.Singleton.Shutdown();
+        AuthenticationService.Instance.SignOut();
+    }
 }

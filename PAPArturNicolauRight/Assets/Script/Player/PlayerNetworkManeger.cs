@@ -1,9 +1,7 @@
-using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerNetworkManeger : NetworkBehaviour
 {
@@ -16,6 +14,42 @@ public class PlayerNetworkManeger : NetworkBehaviour
 
     [SerializeField] private TMP_Text nameCharacter, raceCharacter, discCharacter, hpCharacter, strCharacter, dexCharacter, constCharacter, intCharacter, manaCharacter;
 
+    private void Start()
+    {
+        if (!IsOwner)
+            return;
+
+        if (IsClient)
+            NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManeger_OnClientDisconnectCallback;
+    }
+
+    private void NetworkManeger_OnClientDisconnectCallback(ulong clientID)
+    {
+        if (!IsOwner)
+            return;
+
+        if (IsClient)
+        {
+            SceneManager.LoadScene(0);
+
+            Debug.Log("aaaaaaaaaaaaaaaaaa");
+
+        }
+    }
+
+
+
+    public void LoadMainPageNonError()
+    {
+        if (!IsOwner)
+            return;
+
+
+        NetworkManager.Singleton.Shutdown();
+        SceneManager.LoadScene(0);
+
+
+    }
 
     public override void OnNetworkSpawn()
     {
@@ -43,7 +77,7 @@ public class PlayerNetworkManeger : NetworkBehaviour
             defaultModel.SetActive(true);
 
         }
-        else if(IsClient)
+        else if (IsClient)
         {
             var thirdPerson = GetComponent<ThirdpersonMovement>();
 

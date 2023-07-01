@@ -21,6 +21,8 @@ public class RelayScript : MonoBehaviour
     {
         await UnityServices.InitializeAsync();
 
+        AuthenticationService.Instance.SignOut();
+
         AuthenticationService.Instance.SignedIn += () => {
             Debug.Log("Sign In" + AuthenticationService.Instance.PlayerId);
         };
@@ -83,8 +85,6 @@ public class RelayScript : MonoBehaviour
                 Debug.Log(e);
 
                 LoadScene.LoadError();
-
-                AuthenticationService.Instance.SignOut();
             }
         }
         else
