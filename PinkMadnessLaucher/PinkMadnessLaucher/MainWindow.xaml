@@ -105,7 +105,7 @@
             </StackPanel>
 
             <!-- Play Button -->
-            <Button Content="Play" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,234,0,0" Height="70" Width="200" FontSize="24" Click="Button_Click"/>
+            <Button Content="Lançar" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,234,0,0" Height="70" Width="200" FontSize="24" Click="Button_Click"/>
 
 
         </Grid>
