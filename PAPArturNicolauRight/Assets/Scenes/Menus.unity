@@ -3032,7 +3032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.041501902}
   m_AnchorMax: {x: 1, y: 0.95415026}
-  m_AnchoredPosition: {x: 7.007, y: 10.442056}
+  m_AnchoredPosition: {x: 7.007, y: 10.442887}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &125113965
@@ -11726,13 +11726,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: c68be54c4836aa3428b9ed4b9b321641, type: 2}
     - target: {fileID: 5866666021909216657, guid: d48c47003e4190d4b83bc0c37d818132, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'palm.04.R'\n\tTransform 'f_index.02.R'\n\tTransform
-        'spine.003'\n\tTransform 'toe.L'\n\tTransform 'upper_arm.L'\n\tTransform
-        'forearm.L'\n\tTransform 'f_index.01.R'\n\tTransform 'thumb.01.R'\n\tTransform
-        'spine.002'\n\tTransform 'shin.L'\n\tand more ...\n\tFrom animation clip
-        'Sitting Rubbing Arm'"
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d48c47003e4190d4b83bc0c37d818132, type: 3}
@@ -22937,10 +22931,10 @@ RectTransform:
   m_Father: {fileID: 491804351}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -260.27612, y: -216.31}
-  m_SizeDelta: {x: 279.451, y: 17.157}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 139.72388, y: 8.166}
+  m_SizeDelta: {x: 279.451, y: 16.324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782025757
 MonoBehaviour:
@@ -38195,8 +38189,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1107436122}
   m_HandleRect: {fileID: 1107436121}
   m_Direction: 2
-  m_Value: 1.0000077
-  m_Size: 0.66482645
+  m_Value: 1.0000005
+  m_Size: 0.6647575
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -41374,7 +41368,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2083927506}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99977386
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -49652,7 +49646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000091552734, y: -18.999996}
+  m_AnchoredPosition: {x: 0.000091552734, y: -18.99988}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.44, y: 0.9}
 --- !u!114 &1723539809
