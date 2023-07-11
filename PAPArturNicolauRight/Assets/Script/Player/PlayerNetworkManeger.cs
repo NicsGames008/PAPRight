@@ -19,37 +19,37 @@ public class PlayerNetworkManeger : NetworkBehaviour
         if (!IsOwner)
             return;
 
-        if (IsClient)
-            NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManeger_OnClientDisconnectCallback;
+        //if (IsClient)
+        //    NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManeger_OnClientDisconnectCallback;
     }
 
-    private void NetworkManeger_OnClientDisconnectCallback(ulong clientID)
-    {
-        if (!IsOwner)
-            return;
+    //private void NetworkManeger_OnClientDisconnectCallback(ulong clientID)
+    //{
+    //    if (!IsOwner)
+    //        return;
 
-        if (IsClient)
-        {
-            SceneManager.LoadScene(0);
+    //    if (IsClient)
+    //    {
+    //        SceneManager.LoadScene(0);
 
-            Debug.Log("aaaaaaaaaaaaaaaaaa");
+    //        Debug.Log("aaaaaaaaaaaaaaaaaa");
 
-        }
-    }
-
-
-
-    public void LoadMainPageNonError()
-    {
-        if (!IsOwner)
-            return;
+    //    }
+    //}
 
 
-        NetworkManager.Singleton.Shutdown();
-        SceneManager.LoadScene(0);
+
+    //public void LoadMainPageNonError()
+    //{
+    //    if (!IsOwner)
+    //        return;
 
 
-    }
+    //    NetworkManager.Singleton.Shutdown();
+    //    SceneManager.LoadScene(0);
+
+
+    //}
 
     public override void OnNetworkSpawn()
     {

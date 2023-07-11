@@ -10,6 +10,11 @@ public class ThirdpersonMovement : NetworkBehaviour
     [SerializeField] private CinemachineFreeLook vc;
     [SerializeField] private AudioListener listener;
 
+    private Animator animator;
+    private int isWalkingHash;
+    private int isRunningHash;
+    private int isJumpingHash;
+
     public float speed = 6f;
 
     public float turnSmoothTime = 0.1f;
@@ -39,6 +44,12 @@ public class ThirdpersonMovement : NetworkBehaviour
 
 
         controller = GetComponent<CharacterController>();
+
+        animator = GetComponentInChildren<Animator>();
+
+        isWalkingHash = Animator.StringToHash("isWalking");
+        isRunningHash = Animator.StringToHash("isRunning");
+        isJumpingHash = Animator.StringToHash("isJumping");
     }
 
 
@@ -87,34 +98,73 @@ public class ThirdpersonMovement : NetworkBehaviour
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
 
+        bool isWalking = animator.GetBool(isWalkingHash);
+        bool isRunning = animator.GetBool(isRunningHash);
+        bool isJumping = animator.GetBool(isJumpingHash);
+        bool forwardPressesd = Input.GetKey(KeyCode.W);
+        bool jumpPressesd = Input.GetKey(KeyCode.Space);
+        bool runPressed = Input.GetKey(KeyCode.LeftShift);
+
+
+        if (!isWalking && forwardPressesd)
+        {
+            animator.SetBool("isWalking", true);
+        }
+
+        if (isWalking && !forwardPressesd)
+        {
+            animator.SetBool("isWalking", false);
+        }
+
+
+        if (!isRunning && (forwardPressesd && runPressed))
+        {
+            animator.SetBool(isRunningHash, true);
+        }
+
+        if (isRunning && (!forwardPressesd || !runPressed))
+        {
+            animator.SetBool(isRunningHash, false);
+        }
+
+
+
 
         #region Sprint
 
         //ve se carregou na tecla shift
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (!isRunning && (forwardPressesd && runPressed))
         {
-            //Aumenta a velicidade
-            speed = 8;
+            animator.SetBool(isRunningHash, true);
+            speed = 8f;
         }
 
         //ve se largou na tecla shift
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (isRunning && (!forwardPressesd || !runPressed))
         {
-            //Diminui a velucidade
-            speed = 6;
+            animator.SetBool(isRunningHash, false);
+            speed = 6f;
         }
 
         #endregion
 
         #region Saltar
         //Ve se carregou na tecla de saltar
-        if (Input.GetKey(KeyCode.Space))
+        if (jumpPressesd)
         {
             if (isGrounded)
             {
                 //Salta
                 playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravity);
+
+                animator.SetBool(isJumpingHash, true);
+
             }
+        }
+
+        if (!jumpPressesd)
+        {
+            animator.SetBool(isJumpingHash, false);
         }
         #endregion
     }

@@ -178,10 +178,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior@Sitting Gun Motion
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 84c9406fb9acbf4498ed43c86cdb1efd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 84c9406fb9acbf4498ed43c86cdb1efd, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 99ca449f1d8e6c14fbba483dd2f7fbdc, type: 2}
+      objectReference: {fileID: 9100000, guid: 7dd5517f2ce6a9747b4a1132771c4669, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84c9406fb9acbf4498ed43c86cdb1efd, type: 3}
 --- !u!1001 &390363745
@@ -390,6 +394,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 485865f9d0031744c8b845e3e611cb40, type: 3}
+--- !u!1 &1013232849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3277224982151655860, guid: 2214f2b9572756e41988455dc3ffc3a5, type: 3}
+  m_PrefabInstance: {fileID: 1945653297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1013232852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013232849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8a62b86e403174d8852a8c06dcd0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1197189981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -549,6 +570,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1459837963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 84c9406fb9acbf4498ed43c86cdb1efd, type: 3}
+  m_PrefabInstance: {fileID: 39196590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1459837966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459837963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8a62b86e403174d8852a8c06dcd0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1678819039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -623,15 +661,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2751939535697816334, guid: 2214f2b9572756e41988455dc3ffc3a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.011
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2751939535697816334, guid: 2214f2b9572756e41988455dc3ffc3a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.772
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2751939535697816334, guid: 2214f2b9572756e41988455dc3ffc3a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.35
+      value: -2.06
       objectReference: {fileID: 0}
     - target: {fileID: 2751939535697816334, guid: 2214f2b9572756e41988455dc3ffc3a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -643,7 +681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2751939535697816334, guid: 2214f2b9572756e41988455dc3ffc3a5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2751939535697816334, guid: 2214f2b9572756e41988455dc3ffc3a5, type: 3}
       propertyPath: m_LocalRotation.z
@@ -667,6 +705,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3277224982151655860, guid: 2214f2b9572756e41988455dc3ffc3a5, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129268605622874484, guid: 2214f2b9572756e41988455dc3ffc3a5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7dd5517f2ce6a9747b4a1132771c4669, type: 2}
+    - target: {fileID: 8129268605622874484, guid: 2214f2b9572756e41988455dc3ffc3a5, type: 3}
+      propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
